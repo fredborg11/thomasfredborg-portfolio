@@ -33,7 +33,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base.replace(/\/$/, "")}${
         const cover = item.frontmatter.cover;
         const slug = item.file.split("/").pop()?.replace(/\.md$/, "");
         return (
-          <a class="project" href={`${base}cases/${slug}`}>
+          <a class="project" href={`${base}cases/${slug}/`}>
             <div class="project-media">
               {cover ? (
                 <img src={mediaUrl(cover)} alt="" loading="lazy" />
