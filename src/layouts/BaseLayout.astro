@@ -1,6 +1,6 @@
 ---
 const { title = "Thomas Fredborg — Graphic Designer / Art Director", description = "Portfolio of Thomas Fredborg." } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 ---
 <!doctype html>
 <html lang="da">
