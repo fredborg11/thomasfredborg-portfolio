@@ -7,7 +7,7 @@ content:
   - name: cases
     label: Cases
     type: collection
-    path: content/cases
+    path: src/content/cases
     format: yaml-frontmatter
     filename: "{slug}.md"
     view:
