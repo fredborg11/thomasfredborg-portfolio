@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-export async function getStaticPaths() {
-  const entries = await Astro.glob("../../content/cases/*.md");
-  return entries.map((entry) => ({
-    params: { slug: entry.file.split("/").pop()?.replace(/\.md$/, "") },
+const entries = import.meta.glob("../../content/cases/*.md", { eager: true });
+
+export function getStaticPaths() {
+  return Object.entries(entries).map(([file, entry]) => ({
+    params: { slug: file.split("/").pop()?.replace(/\.md$/, "") },
     props: { entry },
   }));
 }
