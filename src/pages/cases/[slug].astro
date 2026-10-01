@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const entries = await Astro.glob("../../content/cases/*.md");
+  return entries.map((entry) => ({
+    params: { slug: entry.file.split("/").pop()?.replace(/\.md$/, "") },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = entry;
+const frontmatter = entry.frontmatter;
+---
+<BaseLayout
+  title={`${frontmatter.title} — Thomas Fredborg`}
+  description={frontmatter.intro ?? "Selected work by Thomas Fredborg."}
+>
+  <article class="case">
+    <a class="back" href={import.meta.env.BASE_URL}>← All work</a>
+
+    <header class="case-header">
+      <p class="eyebrow">{frontmatter.category ?? "Selected work"}</p>
+      <h1>{frontmatter.title}</h1>
+      {frontmatter.intro && <p class="intro">{frontmatter.intro}</p>}
+    </header>
+
+    <div class="facts">
+      {frontmatter.client && <div><span>Client</span><strong>{frontmatter.client}</strong></div>}
+      {frontmatter.year && <div><span>Year</span><strong>{frontmatter.year}</strong></div>}
+      {frontmatter.role && <div><span>Role</span><strong>{frontmatter.role}</strong></div>}
+      {frontmatter.tags?.length && <div><span>Focus</span><strong>{frontmatter.tags.join(" · ")}</strong></div>}
+    </div>
+
+    {frontmatter.cover && (
+      <figure class="hero">
+        <img src={frontmatter.cover} alt="" />
+      </figure>
+    )}
+
+    {frontmatter.gallery?.length && (
+      <div class="gallery">
+        {frontmatter.gallery.map((image, index) => (
+          <figure class={index === 0 ? "gallery-large" : ""}>
+            <img src={image} alt="" loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    )}
+
+    {frontmatter.video && (
+      <div class="video-wrap">
+        <video controls playsinline preload="metadata">
+          <source src={frontmatter.video} />
+        </video>
+      </div>
+    )}
+
+    <div class="body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .case {
+    width: min(calc(100% - 40px), var(--max));
+    margin: 56px auto 0;
+  }
+
+  .back {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .case-header {
+    margin: 15vh 0 13vh;
+    max-width: 1050px;
+  }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(58px, 10vw, 150px);
+    line-height: .9;
+    letter-spacing: -.06em;
+    font-weight: 600;
+  }
+
+  .intro {
+    max-width: 650px;
+    margin: 42px 0 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #55534f;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 30px;
+  }
+
+  .facts > div {
+    padding: 14px 10px 16px 0;
+  }
+
+  .facts span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+  }
+
+  .facts strong {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  .hero img,
+  .gallery img,
+  .video-wrap video {
+    width: 100%;
+    display: block;
+  }
+
+  .hero {
+    background: var(--card);
+  }
+
+  .gallery {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .gallery-large {
+    grid-column: span 2;
+  }
+
+  .video-wrap {
+    margin-top: 22px;
+    background: #141414;
+  }
+
+  .body {
+    max-width: 820px;
+    margin: 16vh auto 0;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .body :global(h2) {
+    margin-top: 2.2em;
+    font-size: 34px;
+    line-height: 1.05;
+    letter-spacing: -.03em;
+  }
+
+  .body :global(p) {
+    margin: 0 0 1.2em;
+  }
+
+  .body :global(ul) {
+    padding-left: 1.2em;
+  }
+
+  @media (max-width: 820px) {
+    .case {
+      width: min(calc(100% - 28px), var(--max));
+    }
+
+    .facts {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-large {
+      grid-column: auto;
+    }
+
+    .body {
+      font-size: 16px;
+      margin-top: 12vh;
+    }
+  }
+</style>
