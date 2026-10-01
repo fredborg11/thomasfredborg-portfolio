@@ -12,6 +12,8 @@ export function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = entry;
 const frontmatter = entry.frontmatter;
+const base = import.meta.env.BASE_URL;
+const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : path;
 ---
 <BaseLayout
   title={`${frontmatter.title} — Thomas Fredborg`}
@@ -35,7 +37,7 @@ const frontmatter = entry.frontmatter;
 
     {frontmatter.cover && (
       <figure class="hero">
-        <img src={frontmatter.cover} alt="" />
+        <img src={mediaUrl(frontmatter.cover)} alt="" />
       </figure>
     )}
 
@@ -43,7 +45,7 @@ const frontmatter = entry.frontmatter;
       <div class="gallery">
         {frontmatter.gallery.map((image, index) => (
           <figure class={index === 0 ? "gallery-large" : ""}>
-            <img src={image} alt="" loading="lazy" />
+            <img src={mediaUrl(image)} alt="" loading="lazy" />
           </figure>
         ))}
       </div>
@@ -52,7 +54,7 @@ const frontmatter = entry.frontmatter;
     {frontmatter.video && (
       <div class="video-wrap">
         <video controls playsinline preload="metadata">
-          <source src={frontmatter.video} />
+          <source src={mediaUrl(frontmatter.video)} />
         </video>
       </div>
     )}
