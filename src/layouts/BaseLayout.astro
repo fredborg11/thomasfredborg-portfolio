@@ -8,15 +8,21 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f4f0" />
     <title>{title}</title>
     <link rel="icon" href={`${base}favicon.svg`} />
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href={base}>THOMAS FREDBORG</a>
+      <a class="wordmark" href={base} aria-label="Thomas Fredborg — home">
+        <span>THOMAS</span>
+        <span>FREDBORG</span>
+      </a>
+
       <nav aria-label="Primary">
         <a href={`${base}#work`}>Work</a>
         <a href={`${base}#about`}>About</a>
+        <a href="mailto:hello@thomasfredborg.dk">Contact</a>
       </nav>
     </header>
 
@@ -25,7 +31,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     </main>
 
     <footer class="site-footer">
-      <span>© {new Date().getFullYear()} Thomas Fredborg</span>
+      <div>
+        <span class="footer-label">Thomas Fredborg</span>
+        <span class="footer-muted">Graphic Designer / Art Director</span>
+      </div>
       <a href="mailto:hello@thomasfredborg.dk">hello@thomasfredborg.dk</a>
     </footer>
   </body>
@@ -33,12 +42,12 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 
 <style is:global>
   :root {
-    --bg: #f6f5f2;
-    --fg: #121212;
-    --muted: #686868;
-    --line: #d8d6d0;
-    --card: #ebe9e2;
-    --max: 1420px;
+    --bg: #f5f4f0;
+    --fg: #11110f;
+    --muted: #6a6964;
+    --line: #d9d7d0;
+    --card: #e9e7e0;
+    --max: 1480px;
   }
 
   * { box-sizing: border-box; }
@@ -54,6 +63,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     background: var(--bg);
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   a {
@@ -63,51 +73,70 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 
   .site-header,
   .site-footer {
-    width: min(calc(100% - 40px), var(--max));
+    width: min(calc(100% - 56px), var(--max));
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 
   .site-header {
-    padding: 28px 0 20px;
-    position: relative;
-    z-index: 2;
+    padding: 26px 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .wordmark {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .08em;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 750;
+    letter-spacing: .09em;
+  }
+
+  .wordmark span:last-child {
+    margin-top: 3px;
   }
 
   nav {
     display: flex;
-    gap: 24px;
-    font-size: 13px;
+    gap: 22px;
+    font-size: 12px;
+    line-height: 1;
   }
 
-  nav a,
-  .site-footer a {
+  nav a {
     color: var(--muted);
     transition: color .2s ease;
   }
 
-  nav a:hover,
-  .site-footer a:hover {
+  nav a:hover {
     color: var(--fg);
   }
 
   .site-footer {
-    padding: 36px 0 42px;
-    margin-top: 120px;
+    margin-top: 160px;
+    padding: 28px 0 36px;
     border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
     font-size: 12px;
   }
 
-  .site-footer span {
+  .site-footer > div {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .footer-muted,
+  .site-footer a {
     color: var(--muted);
+  }
+
+  .site-footer a:hover {
+    color: var(--fg);
   }
 
   @media (max-width: 680px) {
@@ -117,11 +146,21 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     }
 
     .site-header {
-      padding-top: 22px;
+      padding-top: 20px;
     }
 
     nav {
-      gap: 16px;
+      gap: 14px;
+    }
+
+    .site-footer {
+      margin-top: 110px;
+      display: block;
+    }
+
+    .site-footer a {
+      display: inline-block;
+      margin-top: 14px;
     }
   }
 </style>
