@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
-  const entries = import.meta.glob("../../content/cases/*.md", { eager: true });
+  const entries = import.meta.glob("../../../content/cases/*.md", { eager: true });
   return Object.entries(entries).map(([file, entry]) => ({
     params: { slug: file.split("/").pop()?.replace(/\.md$/, "") },
     props: { entry },
