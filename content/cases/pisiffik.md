@@ -10,12 +10,10 @@ tags:
   - Branding
   - Campaigns
   - Digital
-intro: 13 years of ongoing visual communication, campaigns and retail production for Pisiffik and its concepts.
-cover:
-gallery: []
-video:
+intro: 13 years of ongoing visual communication, campaigns and retail production
+  for Pisiffik and its concepts.
+cover: /media/pisiffik-qinn-4-2.jpg
 ---
-
 Pisiffik is a long-running retail collaboration covering campaign work, digital communication, print, POS and day-to-day commercial production.
 
 ## The work
