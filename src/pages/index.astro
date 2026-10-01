@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const allCases = await Astro.glob("../content/cases/*.md");
+const modules = import.meta.glob("../content/cases/*.md", { eager: true });
+const allCases = Object.values(modules).map((mod) => mod);
 const cases = allCases
   .sort((a, b) => Number(b.frontmatter.year ?? 0) - Number(a.frontmatter.year ?? 0));
 
