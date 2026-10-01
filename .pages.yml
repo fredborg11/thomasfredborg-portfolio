@@ -1,6 +1,7 @@
 media:
   input: public/media
   output: /media
+  rename: safe
 
 content:
   - name: cases
@@ -13,68 +14,77 @@ content:
       primary: title
       sort: year
       order: desc
+      fields: [title, client, year, category]
     fields:
       - name: title
         label: Title
         type: string
         required: true
+
       - name: slug
         label: URL slug
         type: string
         required: true
+        pattern: "^[a-z0-9-]+$"
         description: Lowercase URL slug, for example "pisiffik"
+
       - name: client
         label: Client
         type: string
+
       - name: year
         label: Year
         type: number
+
       - name: category
         label: Category
         type: string
+
       - name: role
         label: Role
         type: string
+
       - name: tags
         label: Tags
         type: string
         list: true
+
       - name: intro
         label: Introduction
         type: text
+
       - name: cover
         label: Cover image
         type: image
         options:
-          media: default
           path: public/media
           extensions: [jpg, jpeg, png, webp]
           rename: safe
+
       - name: gallery
         label: Gallery
         type: image
         options:
-          media: default
           path: public/media
           multiple:
             max: 30
           unique: true
           extensions: [jpg, jpeg, png, webp]
           rename: safe
+
       - name: video
         label: Video
         type: file
         options:
-          media: default
           path: public/media
           categories: [video]
           extensions: [mp4, webm, mov]
           rename: safe
+
       - name: body
         label: Case content
         type: rich-text
         options:
-          media: default
           path: public/media
           extensions: [jpg, jpeg, png, webp]
           rename: safe
