@@ -47,7 +47,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     )}
 
     {frontmatter.gallery?.length && (
-      <div class="gallery">
+      <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
         {frontmatter.gallery.map((image, index) => (
           <figure class={`gallery-item gallery-item-${index}`}>
             <img src={mediaUrl(image)} alt="" loading="lazy" />
@@ -190,6 +190,20 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
   .gallery-item-2,
   .gallery-item-3 {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Pinetree: create a deliberate 1 + 2 + 2 + 1 + 1 rhythm
+     for the seven gallery images. */
+  .gallery-seven .gallery-item {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-seven .gallery-item-0,
+  .gallery-seven .gallery-item-5,
+  .gallery-seven .gallery-item-6 {
     grid-column: 1 / -1;
     aspect-ratio: 16 / 9;
   }
@@ -371,7 +385,11 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
     .gallery-item,
     .gallery-item-2,
-    .gallery-item-3 {
+    .gallery-item-3,
+    .gallery-seven .gallery-item,
+    .gallery-seven .gallery-item-0,
+    .gallery-seven .gallery-item-5,
+    .gallery-seven .gallery-item-6 {
       grid-column: 1 / -1;
       aspect-ratio: 4 / 3;
     }
