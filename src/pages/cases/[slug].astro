@@ -19,6 +19,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 <BaseLayout
   title={`${frontmatter.title} — Thomas Fredborg`}
   description={frontmatter.intro ?? "Selected work by Thomas Fredborg."}
+  image={frontmatter.cover ?? ""}
 >
   <article class="case">
     <a class="back" href={base}>← All work</a>
