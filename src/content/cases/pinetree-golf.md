@@ -2,7 +2,7 @@
 title: Pinetree Golf
 slug: pinetree-golf
 client: Pinetree Golf
-year: ""
+year: 2021
 category: Brand Identity
 role: Brand Identity / Graphic Design
 tags:
@@ -11,11 +11,17 @@ tags:
   - Product Design
   - Digital
 intro: A complete visual foundation for a new golf brand, spanning logo, visual identity, packaging, golf ball design and the original website direction.
-cover: ""
-gallery: []
+cover: /media/1790943588393-gyldent-solnedgangslys-over-golfbanen.png
+gallery:
+  - /media/1790943615453-golfhandske-med-pinetree-logo-pa-gr-sset.png
+  - /media/1790943625942-pinetree-distance.jpg
+  - /media/1790943629763-pinetree-pro-soft.jpg
+  - /media/1790943633431-pinetree-tqs.jpg
+  - /media/1790943637402-pinetree-tqx.jpg
+  - /media/1790943641005-premiumgolfbolde-i-chartreuse-og-hvidt.png
+  - /media/1790943756922-premium-pinetree-webshop-pa-laptop-og-mobil.png
 video: ""
 ---
-
 ## The project
 
 Pinetree Golf was developed as a new golf brand with the aim of creating a clear and recognizable visual identity that could work consistently across products and digital touchpoints.
