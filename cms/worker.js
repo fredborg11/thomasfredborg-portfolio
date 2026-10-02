@@ -390,31 +390,132 @@ async function uploadMedia(request, env) {
     const basename = sanitizeFilename(original.replace(/\.[^.]+$/, "")) || "media";
     const filename = `${Date.now()}-${basename}${extension}`;
     const path = `${MEDIA_PATH}/${filename}`;
-
     const bytes = new Uint8Array(await file.arrayBuffer());
-    const response = await githubRequest(env, `/repos/${OWNER}/${REPO}/contents/${path}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: `Upload media: ${filename}`,
-        content: base64Encode(bytes),
-        branch: BRANCH
-      })
-    });
 
-    if (!response.ok) {
-      return githubError(response, "Filen kunne ikke uploades.");
-    }
+    const commit = await commitGitBlob(env, path, bytes, `Upload media: ${filename}`);
 
     return json({
       ok: true,
       path: `/media/${filename}`,
       filename,
-      kind: isVideo ? "video" : "image"
+      kind: isVideo ? "video" : "image",
+      commit
     });
   } catch (error) {
     return json({ error: friendlyError(error) }, 500);
   }
+}
+
+async function commitGitBlob(env, path, bytes, message) {
+  const refResponse = await githubRequest(
+    env,
+    `/repos/${OWNER}/${REPO}/git/ref/heads/${encodeURIComponent(BRANCH)}`
+  );
+  if (!refResponse.ok) {
+    return githubErrorThrow(refResponse, "Kunne ikke læse GitHub branch.");
+  }
+
+  const refData = await refResponse.json();
+  const parentSha = refData.object?.sha;
+  if (!parentSha) throw new Error("Kunne ikke finde den aktuelle branch commit.");
+
+  const commitResponse = await githubRequest(
+    env,
+    `/repos/${OWNER}/${REPO}/git/commits/${parentSha}`
+  );
+  if (!commitResponse.ok) {
+    return githubErrorThrow(commitResponse, "Kunne ikke læse GitHub commit.");
+  }
+
+  const commitData = await commitResponse.json();
+  const baseTree = commitData.tree?.sha;
+  if (!baseTree) throw new Error("Kunne ikke finde Git tree.");
+
+  const blobResponse = await githubRequest(
+    env,
+    `/repos/${OWNER}/${REPO}/git/blobs`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: base64Encode(bytes),
+        encoding: "base64"
+      })
+    }
+  );
+  if (!blobResponse.ok) {
+    return githubErrorThrow(blobResponse, "Kunne ikke oprette filen i GitHub.");
+  }
+
+  const blobData = await blobResponse.json();
+
+  const treeResponse = await githubRequest(
+    env,
+    `/repos/${OWNER}/${REPO}/git/trees`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        base_tree: baseTree,
+        tree: [
+          {
+            path,
+            mode: "100644",
+            type: "blob",
+            sha: blobData.sha
+          }
+        ]
+      })
+    }
+  );
+  if (!treeResponse.ok) {
+    return githubErrorThrow(treeResponse, "Kunne ikke opdatere Git tree.");
+  }
+
+  const treeData = await treeResponse.json();
+
+  const newCommitResponse = await githubRequest(
+    env,
+    `/repos/${OWNER}/${REPO}/git/commits`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message,
+        tree: treeData.sha,
+        parents: [parentSha]
+      })
+    }
+  );
+  if (!newCommitResponse.ok) {
+    return githubErrorThrow(newCommitResponse, "Kunne ikke oprette Git commit.");
+  }
+
+  const newCommitData = await newCommitResponse.json();
+
+  const updateRefResponse = await githubRequest(
+    env,
+    `/repos/${OWNER}/${REPO}/git/refs/heads/${encodeURIComponent(BRANCH)}`,
+    {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sha: newCommitData.sha })
+    }
+  );
+  if (!updateRefResponse.ok) {
+    return githubErrorThrow(updateRefResponse, "Kunne ikke opdatere GitHub branch.");
+  }
+
+  return newCommitData.sha;
+}
+
+async function githubErrorThrow(response, fallback) {
+  let detail = "";
+  try {
+    const data = await response.json();
+    detail = data?.message ? ` ${data.message}` : "";
+  } catch {}
+  throw new Error(`${fallback}${detail}`);
 }
 
 async function deleteCase(slug, env) {
