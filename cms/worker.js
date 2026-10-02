@@ -1,4 +1,4 @@
-import { SignJWT, importPKCS1, importPKCS8 } from "jose";
+import { SignJWT, importPKCS8 } from "jose";
 import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 
 const OWNER = "fredborg11";
@@ -177,9 +177,10 @@ async function getInstallationToken(env) {
   }
 
   const nowSeconds = Math.floor(now / 1000);
-  const key = privateKeyText.includes("BEGIN RSA PRIVATE KEY")
-    ? await importPKCS1(privateKeyText, "RS256")
-    : await importPKCS8(privateKeyText, "RS256");
+  const pkcs8Pem = privateKeyText.includes("BEGIN RSA PRIVATE KEY")
+    ? pkcs1ToPkcs8(privateKeyText)
+    : privateKeyText;
+  const key = await importPKCS8(pkcs8Pem, "RS256");
 
   const jwt = await new SignJWT({})
     .setProtectedHeader({ alg: "RS256", typ: "JWT" })
@@ -525,6 +526,86 @@ function extensionFromName(name, mime) {
   if (mime.includes("mp4")) return ".mp4";
   if (mime.includes("webm")) return ".webm";
   return "";
+}
+
+function pkcs1ToPkcs8(pem) {
+  const base64 = pem
+    .replace(/-----BEGIN RSA PRIVATE KEY-----/g, "")
+    .replace(/-----END RSA PRIVATE KEY-----/g, "")
+    .replace(/\\s/g, "");
+
+  const pkcs1 = Uint8Array.from(atob(base64), (char) => char.charCodeAt(0));
+  const algorithmIdentifier = sequence(
+    oid([1, 2, 840, 113549, 1, 1, 1]),
+    Uint8Array.of(0x05, 0x00)
+  );
+
+  const privateKeyOctetString = tlv(0x04, pkcs1);
+  const privateKeyInfo = sequence(
+    integerZero(),
+    algorithmIdentifier,
+    privateKeyOctetString
+  );
+
+  return derToPem(privateKeyInfo, "PRIVATE KEY");
+}
+
+function integerZero() {
+  return Uint8Array.of(0x02, 0x01, 0x00);
+}
+
+function oid(parts) {
+  const first = 40 * parts[0] + parts[1];
+  const bytes = [first];
+  for (const part of parts.slice(2)) {
+    const stack = [part & 0x7f];
+    let value = part >>> 7;
+    while (value > 0) {
+      stack.unshift((value & 0x7f) | 0x80);
+      value >>>= 7;
+    }
+    bytes.push(...stack);
+  }
+  return tlv(0x06, Uint8Array.from(bytes));
+}
+
+function sequence(...parts) {
+  const length = parts.reduce((sum, part) => sum + part.length, 0);
+  const body = new Uint8Array(length);
+  let offset = 0;
+  for (const part of parts) {
+    body.set(part, offset);
+    offset += part.length;
+  }
+  return tlv(0x30, body);
+}
+
+function tlv(tag, body) {
+  const length = encodeLength(body.length);
+  const result = new Uint8Array(1 + length.length + body.length);
+  result[0] = tag;
+  result.set(length, 1);
+  result.set(body, 1 + length.length);
+  return result;
+}
+
+function encodeLength(length) {
+  if (length < 128) return Uint8Array.of(length);
+  const bytes = [];
+  let value = length;
+  while (value > 0) {
+    bytes.unshift(value & 0xff);
+    value >>>= 8;
+  }
+  return Uint8Array.from([0x80 | bytes.length, ...bytes]);
+}
+
+function derToPem(bytes, label) {
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  const base64 = btoa(binary);
+  const lines = base64.match(/.{1,64}/g) || [];
+  return `-----BEGIN ${label}-----\\n${lines.join("\\n")}\\n-----END ${label}-----`;
 }
 
 function decodeBase64(value) {
