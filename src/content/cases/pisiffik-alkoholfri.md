@@ -18,7 +18,6 @@ gallery:
   - /media/1790931971853-chatgpt-image-14.-sep.-2026-14.24.23.png
 video: ""
 ---
-
 ## Opgaven
 
 Pisiffik ønskede en kampagne, der kunne nudge kunderne til at vælge flere alkoholfri produkter frem for produkter med alkohol.
