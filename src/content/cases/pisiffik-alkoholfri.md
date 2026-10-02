@@ -1,17 +1,16 @@
 ---
-title: Alkoholfri kampagne
+title: Alcohol-Free Campaign
 slug: pisiffik-alkoholfri
 client: Pisiffik
 year: 2026
 category: Campaign
-role: Graphic Design / Art Direction
+role: Graphic Design / Visual Development
 tags:
   - Campaign
   - Retail
   - Graphic Design
   - Print
-  - Art Direction
-intro: En trykt retailkampagne, der skal gøre det lettere for Pisiffiks kunder at få øje på alkoholfri alternativer og skabe et lille skub i retning af 0.0%.
+intro: A printed retail campaign designed to make alcohol-free alternatives more visible in-store and give customers a small nudge towards 0.0%.
 cover: /media/1790931889221-pisiffik_alkoholfri-kampagne_pr-sentation-1.jpg
 gallery:
   - /media/1790931691840-alkoholfri-reklameskilte-i-supermarkedet.png
@@ -20,53 +19,56 @@ gallery:
   - /media/1790933305761-alkoholfri-hyldefremvisning-i-bla-toner.png
 video: ""
 ---
-## Opgaven
 
-Pisiffik ønskede en kampagne, der kunne nudge kunderne til at vælge flere alkoholfri produkter frem for produkter med alkohol.
+## The brief
 
-Opgaven var at udvikle et samlet grafisk udtryk til en række trykte materialer, der kunne guide kunderne frem til afdelingen med alkoholfri produkter og samtidig gøre budskabet hurtigt og let at forstå i butiksmiljøet.
+Pisiffik wanted a campaign that could nudge customers towards choosing more alcohol-free products instead of alcoholic alternatives.
 
-Kampagnen skulle blandt andet bestå af hængeskilte i afdelingen, 0.0%-fodspor på gulvet, faktabokse til placering i afdelingen samt hyldesvipper ved de alkoholfri produkter.
+The task was to create a cohesive visual system across a range of printed retail materials, helping customers find the alcohol-free section while making the message quick and easy to understand in a busy store environment.
 
-## Min rolle
+The campaign included hanging signs, 0.0% floor footprints leading towards the alcohol-free section, stackable information boxes and shelf wobblers placed alongside the products.
 
-Idéen og det overordnede kampagneoplæg kom fra Pisiffiks marketingchef. Min opgave var at omsætte retningen til et sammenhængende visuelt univers og stå for det grafiske arbejde fra layout til færdigt tryk.
+## My role
 
-Jeg stod for det grafiske udtryk, opsætning og layout af alle materialerne samt klargøring og fremsendelse til tryk og levering.
+The campaign concept and overall direction came from Pisiffik's Marketing Manager. My role was to translate that direction into a consistent visual identity and take responsibility for the graphic execution from layout to final production.
 
-Den fysiske opstilling og eksekvering ude i butikkerne blev håndteret af Pisiffik.
+I developed the visual expression, set up and laid out all campaign materials, prepared the artwork for print, and handled the print and delivery process.
 
-## Det visuelle greb
+The in-store installation and execution were handled by Pisiffik.
 
-Et centralt mål var høj genkendelighed. Budskaberne skulle kunne aflæses hurtigt, mens de forskellige materialer samtidig skulle føles som dele af den samme kampagne.
+## Visual approach
 
-Jeg lagde samtidig vægt på at lade det grønlandske udtryk fylde mere og lade det danske sprog træde i baggrunden. Kampagnen er først og fremmest målrettet grønlandske kunder, og derfor skulle det visuelle udtryk opleves som lokalt og relevant frem for som en klassisk dansk retailkampagne.
+The visual system was built around recognition and clarity. Each touchpoint needed to be understood quickly while still feeling like part of one campaign.
 
-## Budskaber
+I also wanted the visual expression to feel distinctly local. The campaign was primarily aimed at Greenlandic customers, so I gave the Greenlandic language and visual context a stronger role and kept Danish more secondary in the hierarchy.
 
-Kampagnen tog udgangspunkt i en række korte budskaber:
+The result is a retail system designed to feel straightforward, recognizable and rooted in its market rather than like a generic Danish campaign adapted for Greenland.
 
-> 0% alkohol – 100% sundere.
+## Campaign messages
 
-> 0% alkohol i aften – 100% klar i morgen.
+The campaign was built around short, direct messages:
 
-> 0% tømmermænd – 100% energi til dagen.
+> 0% alcohol – 100% healthier.
 
-> 100% hygge – 0% konsekvens.
+> 0% alcohol tonight – 100% ready tomorrow.
 
-## Leverancer
+> 0% hangover – 100% energy for the day.
 
-Kampagnen blev udviklet til flere kontaktpunkter i butikken:
+> 100% good times – 0% consequences.
 
-- Hængeskilte i afdelingen med alkoholfri produkter
-- 0.0%-fodspor på gulvet, som leder kunderne mod afdelingen
-- Faktabokse, der kan placeres oven på hinanden
-- Hyldesvipper ved de alkoholfri produkter
+## Deliverables
 
-## Udrulning
+The campaign was developed across several in-store touchpoints:
 
-Kampagnen er rullet ud i Pisiffiks syv butikker.
+- Hanging signs in the alcohol-free section
+- 0.0% footprints guiding customers towards the section
+- Stackable information boxes for the alcohol-free area
+- Shelf wobblers placed next to alcohol-free products
 
-Effekten er endnu ikke målbar. Pisiffik forventer at kunne evaluere kampagnens resultater i en rapport i 2027.
+## Rollout
 
-Kampagnen er indtil videre udelukkende anvendt i de trykte materialer i butikkerne og er ikke lanceret online.
+The campaign has been rolled out across all seven Pisiffik stores.
+
+The effect has not been measured yet. Pisiffik expects the campaign results to be evaluated in a report in 2027.
+
+For now, the campaign has only been used in the printed in-store materials shown here and has not been launched online.
