@@ -169,25 +169,48 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     }
 
     .site-header {
-      padding-top: 20px;
+      padding: 18px 0 12px;
+      align-items: center;
+    }
+
+    .wordmark {
+      font-size: 10px;
+      letter-spacing: .08em;
     }
 
     nav {
-      gap: 14px;
+      gap: 13px;
+      font-size: 11px;
+    }
+
+    nav a {
+      padding: 8px 0;
     }
 
     .site-footer {
-      margin-top: 110px;
+      margin-top: 96px;
+      padding-bottom: 28px;
       display: block;
+      font-size: 11px;
+    }
+
+    .site-footer > div {
+      display: block;
+    }
+
+    .footer-muted {
+      display: block;
+      margin-top: 5px;
     }
 
     .footer-right {
       display: block;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .footer-right a {
       display: block;
+      overflow-wrap: anywhere;
     }
   }
 </style>
