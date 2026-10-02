@@ -11,6 +11,7 @@ tags:
   - Product Design
   - Digital
 intro: A complete visual foundation for a new golf brand, spanning logo, visual identity, packaging, golf ball design and the original website direction.
+updatedAt: 2026-10-02T12:22:49Z
 cover: /media/1790943588393-gyldent-solnedgangslys-over-golfbanen.png
 gallery:
   - /media/1790943615453-golfhandske-med-pinetree-logo-pa-gr-sset.png
