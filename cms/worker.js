@@ -324,6 +324,7 @@ async function saveCase(request, env) {
   try {
     const input = await request.json();
     const caseData = normalizeCase(input);
+    caseData.updatedAt = new Date().toISOString();
     if (!caseData.slug || !isSafeSlug(caseData.slug)) {
       return json({ error: "Slug skal kun indeholde små bogstaver, tal og bindestreger." }, 400);
     }
@@ -588,7 +589,8 @@ function normalizeCase(input) {
     cover: String(input.cover || "").trim(),
     gallery: array(input.gallery),
     video: String(input.video || "").trim(),
-    body: String(input.body || "").trim()
+    body: String(input.body || "").trim(),
+    updatedAt: String(input.updatedAt || "").trim()
   };
 }
 
@@ -604,7 +606,8 @@ function serializeCase(data) {
     intro: data.intro || "",
     cover: data.cover || "",
     gallery: data.gallery || [],
-    video: data.video || ""
+    video: data.video || "",
+    updatedAt: data.updatedAt || ""
   };
 
   return `---\n${stringifyYaml(frontmatter, { lineWidth: 0 }).trim()}\n---\n${data.body ? data.body + "\n" : ""}`;
