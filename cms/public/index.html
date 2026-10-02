@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thomas Fredborg — Portfolio CMS</title>
+  <meta name="color-scheme" content="light">
+  <style>
+    :root {
+      --bg:#f5f4f0;
+      --fg:#11110f;
+      --muted:#6b6963;
+      --line:#d9d7d0;
+      --panel:#fffefa;
+      --accent:#11110f;
+      --danger:#a43b31;
+      --max:1320px;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg)}
+    body{margin:0;color:var(--fg);background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+    .shell{width:min(calc(100% - 40px),var(--max));margin:0 auto}
+    .top{padding:24px 0 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+    .brand{font-size:12px;font-weight:750;letter-spacing:.09em;display:flex;flex-direction:column;line-height:1}
+    .brand span+span{margin-top:4px}
+    .top-actions{display:flex;gap:8px}
+    .button{border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:999px;font-size:12px;color:var(--fg)}
+    .button:hover{border-color:#aaa69e}
+    .button.primary{background:var(--fg);border-color:var(--fg);color:white}
+    .button.danger{color:var(--danger)}
+    .screen{padding:42px 0 80px}
+    .login{width:min(420px,100%);margin:12vh auto 0}
+    .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--muted)}
+    h1{font-size:48px;line-height:.94;letter-spacing:-.055em;font-weight:540;margin:14px 0 12px}
+    h2{font-size:28px;letter-spacing:-.04em;margin:0}
+    p{line-height:1.55;color:var(--muted)}
+    label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 7px}
+    input,textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:11px 12px;color:var(--fg);outline:none}
+    input:focus,textarea:focus{border-color:#8d8a83}
+    textarea{min-height:180px;resize:vertical;line-height:1.55}
+    .field{margin-bottom:20px}
+    .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .status{font-size:12px;color:var(--muted)}
+    .case-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .case-card{background:var(--panel);border:1px solid var(--line);padding:0;text-align:left;overflow:hidden}
+    .thumb{aspect-ratio:4/3;background:#e8e6df;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .thumb span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+    .card-body{padding:15px}
+    .card-title{font-size:14px;font-weight:600}
+    .card-meta{font-size:11px;color:var(--muted);margin-top:4px}
+    .editor{display:none}
+    .editor.active{display:block}
+    .list.active{display:none}
+    .editor-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:30px}
+    .editor-actions{display:flex;gap:8px}
+    .panel{background:var(--panel);border:1px solid var(--line);padding:22px;margin-top:18px}
+    .panel-title{font-size:12px;text-transform:uppercase;letter-spacing:.11em;margin-bottom:16px}
+    .media-upload{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .media-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+    .media-item{border:1px solid var(--line);background:var(--bg);padding:0;position:relative}
+    .media-item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+    .media-item .media-name{font-size:10px;color:var(--muted);padding:7px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .remove{position:absolute;top:7px;right:7px;width:27px;height:27px;border-radius:50%;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.9);font-size:14px}
+    .video-file{font-size:12px;color:var(--muted);margin-top:10px}
+    .hint{font-size:11px;color:var(--muted);margin:8px 0 0}
+    .toast{position:fixed;right:20px;bottom:20px;background:#11110f;color:white;padding:12px 15px;border-radius:10px;font-size:12px;box-shadow:0 10px 30px rgba(0,0,0,.14);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}
+    .toast.show{opacity:1;transform:none}
+    .empty{padding:60px 0;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--muted);font-size:13px}
+    @media (max-width:900px){.case-list{grid-template-columns:repeat(2,minmax(0,1fr))}.media-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:640px){.shell{width:min(calc(100% - 28px),var(--max))}.top{padding-top:20px}.row,.case-list,.media-grid{grid-template-columns:1fr}h1{font-size:42px}.editor-head{display:block}.editor-actions{margin-top:18px}.toolbar{align-items:flex-start;flex-direction:column}.top-actions{gap:5px}.button{padding:8px 11px}}
+  </style>
+</head>
+<body>
+  <header class="top shell">
+    <a class="brand" href="/">
+      <span>THOMAS</span>
+      <span>FREDBORG</span>
+    </a>
+    <div class="top-actions" id="topActions"></div>
+  </header>
+
+  <main class="shell screen">
+    <section id="loginView" class="login">
+      <div class="eyebrow">Portfolio CMS</div>
+      <h1>Manage<br>your work.</h1>
+      <p>Log ind for at redigere cases, uploade billeder og administrere dit portfolio.</p>
+      <form id="loginForm">
+        <div class="field">
+          <label for="password">Adgangskode</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="button primary" type="submit">Log ind</button>
+      </form>
+    </section>
+
+    <section id="listView" class="list">
+      <div class="toolbar">
+        <div>
+          <div class="eyebrow">Cases</div>
+          <h1>Selected work.</h1>
+        </div>
+        <button class="button primary" id="newCase">+ New case</button>
+      </div>
+      <div id="caseStatus" class="status"></div>
+      <div id="caseList" class="case-list"></div>
+    </section>
+
+    <section id="editorView" class="editor">
+      <div class="editor-head">
+        <div>
+          <button class="button" id="backToList">← All cases</button>
+          <div class="eyebrow" style="margin-top:22px">Case editor</div>
+          <h1 id="editorTitle">New case</h1>
+        </div>
+        <div class="editor-actions">
+          <button class="button danger" id="deleteCase" style="display:none">Delete</button>
+          <button class="button primary" id="saveCase">Save case</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Basic information</div>
+        <div class="row">
+          <div class="field"><label>Title</label><input id="f_title"></div>
+          <div class="field"><label>URL slug</label><input id="f_slug" placeholder="alkoholfri"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Client</label><input id="f_client"></div>
+          <div class="field"><label>Year</label><input id="f_year" type="number"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Category</label><input id="f_category" placeholder="Campaign"></div>
+          <div class="field"><label>Role</label><input id="f_role" placeholder="Art Direction / Graphic Design"></div>
+        </div>
+        <div class="field"><label>Tags</label><input id="f_tags" placeholder="Campaign, Retail, Branding"></div>
+        <div class="field"><label>Introduction</label><textarea id="f_intro" style="min-height:100px"></textarea></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Images & video</div>
+        <div class="field">
+          <label>Cover image</label>
+          <div class="media-upload">
+            <input id="coverFile" type="file" accept="image/jpeg,image/png,image/webp">
+            <span id="coverStatus" class="hint"></span>
+          </div>
+          <div id="coverPreview"></div>
+        </div>
+
+        <div class="field">
+          <label>Gallery</label>
+          <div class="media-upload">
+            <input id="galleryFiles" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+            <span id="galleryStatus" class="hint"></span>
+          </div>
+          <div id="galleryPreview" class="media-grid"></div>
+        </div>
+
+        <div class="field">
+          <label>Video</label>
+          <div class="media-upload">
+            <input id="videoFile" type="file" accept="video/mp4,video/webm,video/quicktime">
+            <span id="videoStatus" class="hint"></span>
+          </div>
+          <div id="videoPreview" class="video-file"></div>
+          <p class="hint">Maks. 25 MB pr. fil. MP4 eller WebM anbefales.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Case content</div>
+        <label for="f_body">Markdown</label>
+        <textarea id="f_body" style="min-height:420px"></textarea>
+        <p class="hint">Du kan bruge almindelig Markdown: ## Overskrift, **fed**, links og lister.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const state = { current: null, cases: [] };
+
+    const $ = (id) => document.getElementById(id);
+
+    function toast(message) {
+      const el = $("toast");
+      el.textContent = message;
+      el.classList.add("show");
+      setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, options);
+      let data = {};
+      try { data = await response.json(); } catch {}
+      if (!response.ok) {
+        throw new Error(data.error || "Noget gik galt.");
+      }
+      return data;
+    }
+
+    function show(view) {
+      $("loginView").style.display = view === "login" ? "" : "none";
+      $("listView").classList.toggle("active", view === "list");
+      $("editorView").classList.toggle("active", view === "editor");
+      $("topActions").innerHTML = view === "login"
+        ? ""
+        : '<button class="button" id="logoutBtn">Log out</button>';
+      if (view !== "login") $("logoutBtn").onclick = logout;
+    }
+
+    async function logout() {
+      await api("/api/logout", { method: "POST" });
+      state.current = null;
+      show("login");
+    }
+
+    async function init() {
+      try {
+        await api("/api/cases");
+        show("list");
+        await loadCases();
+      } catch {
+        show("login");
+      }
+    }
+
+    async function loadCases() {
+      $("caseStatus").textContent = "Loading…";
+      try {
+        const data = await api("/api/cases");
+        state.cases = data.cases || [];
+        renderCases();
+        $("caseStatus").textContent = state.cases.length + (state.cases.length === 1 ? " case" : " cases");
+      } catch (error) {
+        $("caseStatus").textContent = error.message;
+        toast(error.message);
+      }
+    }
+
+    function renderCases() {
+      const list = $("caseList");
+      if (!state.cases.length) {
+        list.innerHTML = '<div class="empty">Ingen cases endnu.</div>';
+        return;
+      }
+
+      list.innerHTML = state.cases.map(item => {
+        const cover = item.cover ? mediaUrl(item.cover) : "";
+        return `
+          <button class="case-card" data-slug="${escapeHtml(item.slug)}">
+            <div class="thumb">
+              ${cover ? `<img src="${escapeAttr(cover)}" alt="">` : '<span>' + escapeHtml(item.category || "Case") + '</span>'}
+            </div>
+            <div class="card-body">
+              <div class="card-title">${escapeHtml(item.title || item.slug)}</div>
+              <div class="card-meta">${escapeHtml(item.client || "")} ${item.year ? "· " + escapeHtml(item.year) : ""}</div>
+            </div>
+          </button>
+        `;
+      }).join("");
+
+      document.querySelectorAll(".case-card").forEach(button => {
+        button.onclick = () => openCase(button.dataset.slug);
+      });
+    }
+
+    async function openCase(slug) {
+      try {
+        const data = await api("/api/cases/" + encodeURIComponent(slug));
+        state.current = data.case;
+        fillEditor(state.current);
+        show("editor");
+      } catch (error) {
+        toast(error.message);
+      }
+    }
+
+    function newCase() {
+      state.current = {
+        title: "",
+        slug: "",
+        client: "Pisiffik",
+        year: new Date().getFullYear(),
+        category: "Campaign",
+        role: "Art Direction / Graphic Design",
+        tags: [],
+        intro: "",
+        cover: "",
+        gallery: [],
+        video: "",
+        body: ""
+      };
+      fillEditor(state.current);
+      show("editor");
+    }
+
+    function fillEditor(data) {
+      $("editorTitle").textContent = data.title || "New case";
+      $("f_title").value = data.title || "";
+      $("f_slug").value = data.slug || "";
+      $("f_client").value = data.client || "";
+      $("f_year").value = data.year || "";
+      $("f_category").value = data.category || "";
+      $("f_role").value = data.role || "";
+      $("f_tags").value = (data.tags || []).join(", ");
+      $("f_intro").value = data.intro || "";
+      $("f_body").value = data.body || "";
+      $("coverStatus").textContent = data.cover || "No cover";
+      $("coverFile").value = "";
+      $("galleryFiles").value = "";
+      $("videoFile").value = "";
+      $("galleryStatus").textContent = (data.gallery || []).length ? data.gallery.length + " billeder" : "No gallery";
+      $("videoStatus").textContent = data.video || "No video";
+      renderCover(data.cover);
+      renderGallery(data.gallery || []);
+      renderVideo(data.video);
+      $("deleteCase").style.display = data.slug ? "" : "none";
+    }
+
+    function collectEditor() {
+      return {
+        title: $("f_title").value.trim(),
+        slug: $("f_slug").value.trim().toLowerCase(),
+        client: $("f_client").value.trim(),
+        year: $("f_year").value ? Number($("f_year").value) : "",
+        category: $("f_category").value.trim(),
+        role: $("f_role").value.trim(),
+        tags: $("f_tags").value.split(",").map(x => x.trim()).filter(Boolean),
+        intro: $("f_intro").value.trim(),
+        cover: state.current?.cover || "",
+        gallery: state.current?.gallery || [],
+        video: state.current?.video || "",
+        body: $("f_body").value
+      };
+    }
+
+    async function saveCase() {
+      const data = collectEditor();
+      $("saveCase").disabled = true;
+      $("saveCase").textContent = "Saving…";
+      try {
+        await api("/api/cases", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        state.current = data;
+        toast("Case gemt.");
+        await loadCases();
+        fillEditor(data);
+      } catch (error) {
+        toast(error.message);
+      } finally {
+        $("saveCase").disabled = false;
+        $("saveCase").textContent = "Save case";
+      }
+    }
+
+    async function uploadFile(file, kind) {
+      const status = $(kind + "Status");
+      status.textContent = "Uploader…";
+      const body = new FormData();
+      body.append("file", file, file.name);
+
+      try {
+        const data = await api("/api/upload", { method: "POST", body });
+        if (kind === "cover") {
+          state.current.cover = data.path;
+          renderCover(data.path);
+          status.textContent = "Upload complete";
+        } else if (kind === "gallery") {
+          state.current.gallery = [...(state.current.gallery || []), data.path];
+          renderGallery(state.current.gallery);
+          status.textContent = state.current.gallery.length + " billeder";
+        } else {
+          state.current.video = data.path;
+          renderVideo(data.path);
+          status.textContent = "Upload complete";
+        }
+      } catch (error) {
+        status.textContent = "";
+        toast(error.message);
+      }
+    }
+
+    function renderCover(path) {
+      const container = $("coverPreview");
+      if (!path) {
+        container.innerHTML = "";
+        return;
+      }
+      const src = mediaUrl(path);
+      container.innerHTML = `
+        <div class="media-grid" style="max-width:360px">
+          <div class="media-item">
+            <img src="${escapeAttr(src)}" alt="">
+            <div class="media-name">${escapeHtml(path)}</div>
+            <button class="remove" title="Remove">×</button>
+          </div>
+        </div>`;
+      container.querySelector(".remove").onclick = () => {
+        state.current.cover = "";
+        renderCover("");
+        $("coverStatus").textContent = "No cover";
+      };
+    }
+
+    function renderGallery(paths) {
+      const container = $("galleryPreview");
+      container.innerHTML = (paths || []).map((path, index) => `
+        <div class="media-item" data-index="${index}">
+          <img src="${escapeAttr(mediaUrl(path))}" alt="" loading="lazy">
+          <div class="media-name">${escapeHtml(path)}</div>
+          <button class="remove" title="Remove">×</button>
+        </div>`).join("");
+
+      container.querySelectorAll(".media-item").forEach(item => {
+        item.querySelector(".remove").onclick = () => {
+          state.current.gallery.splice(Number(item.dataset.index), 1);
+          renderGallery(state.current.gallery);
+          $("galleryStatus").textContent = state.current.gallery.length + " billeder";
+        };
+      });
+    }
+
+    function renderVideo(path) {
+      const container = $("videoPreview");
+      container.innerHTML = path ? escapeHtml(path) + ' <button class="button" id="removeVideo" style="margin-left:8px;padding:5px 8px">Remove</button>' : "";
+      if (path) $("removeVideo").onclick = () => {
+        state.current.video = "";
+        renderVideo("");
+        $("videoStatus").textContent = "No video";
+      };
+    }
+
+    function mediaUrl(path) {
+      return path && path.startsWith("/") ? path : path || "";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" })[c]);
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value);
+    }
+
+    $("loginForm").onsubmit = async event => {
+      event.preventDefault();
+      const button = event.submitter;
+      button.disabled = true;
+      try {
+        await api("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ password: $("password").value })
+        });
+        $("password").value = "";
+        show("list");
+        await loadCases();
+      } catch (error) {
+        toast(error.message);
+      } finally {
+        button.disabled = false;
+      }
+    };
+
+    $("newCase").onclick = newCase;
+    $("backToList").onclick = () => {
+      show("list");
+      loadCases();
+    };
+    $("saveCase").onclick = saveCase;
+
+    $("deleteCase").onclick = async () => {
+      const slug = state.current?.slug;
+      if (!slug || !confirm("Slet denne case? Handlingen kan ikke fortrydes.")) return;
+      try {
+        await api("/api/cases/" + encodeURIComponent(slug), { method: "DELETE" });
+        toast("Case slettet.");
+        show("list");
+        await loadCases();
+      } catch (error) {
+        toast(error.message);
+      }
+    };
+
+    $("coverFile").onchange = event => {
+      const file = event.target.files?.[0];
+      if (file) uploadFile(file, "cover");
+    };
+
+    $("galleryFiles").onchange = async event => {
+      const files = [...(event.target.files || [])];
+      for (const file of files) await uploadFile(file, "gallery");
+      event.target.value = "";
+    };
+
+    $("videoFile").onchange = event => {
+      const file = event.target.files?.[0];
+      if (file) uploadFile(file, "video");
+    };
+
+    init();
+  </script>
+</body>
+</html>
