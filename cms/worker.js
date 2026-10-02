@@ -171,9 +171,20 @@ async function getInstallationToken(env) {
     return tokenCache.token;
   }
 
-  const privateKeyText = String(env.GITHUB_PRIVATE_KEY || "").replace(/\\n/g, "\n").trim();
+  let privateKeyText = String(env.GITHUB_PRIVATE_KEY || "")
+    .replace(/\\r?\\n/g, "\n")
+    .trim();
+
+  if (privateKeyText.startsWith('"') && privateKeyText.endsWith('"')) {
+    privateKeyText = privateKeyText.slice(1, -1).replace(/\\r?\\n/g, "\n").trim();
+  }
+
   if (!env.GITHUB_APP_ID || !privateKeyText) {
     throw new Error("GitHub App credentials are not configured.");
+  }
+
+  if (!privateKeyText.includes("BEGIN RSA PRIVATE KEY") && !privateKeyText.includes("BEGIN PRIVATE KEY")) {
+    throw new Error("GITHUB_PRIVATE_KEY is not a valid PEM private key.");
   }
 
   const nowSeconds = Math.floor(now / 1000);
@@ -631,11 +642,23 @@ function extensionFromName(name, mime) {
 
 function pkcs1ToPkcs8(pem) {
   const base64 = pem
-    .replace(/-----BEGIN RSA PRIVATE KEY-----/g, "")
-    .replace(/-----END RSA PRIVATE KEY-----/g, "")
-    .replace(/\\s/g, "");
+    .replace(/^\\s*-----BEGIN RSA PRIVATE KEY-----\\s*/i, "")
+    .replace(/\\s*-----END RSA PRIVATE KEY-----\\s*$/i, "")
+    .replace(/[^A-Za-z0-9+/=]/g, "");
 
-  const pkcs1 = Uint8Array.from(atob(base64), (char) => char.charCodeAt(0));
+  if (!base64 || base64.length % 4 === 1) {
+    throw new Error("GITHUB_PRIVATE_KEY contains invalid PEM/base64 data.");
+  }
+
+  const padded = base64.padEnd(Math.ceil(base64.length / 4) * 4, "=");
+  let binary;
+  try {
+    binary = atob(padded);
+  } catch {
+    throw new Error("GITHUB_PRIVATE_KEY contains invalid PEM/base64 data.");
+  }
+
+  const pkcs1 = Uint8Array.from(binary, (char) => char.charCodeAt(0));
   const algorithmIdentifier = sequence(
     oid([1, 2, 840, 113549, 1, 1, 1]),
     Uint8Array.of(0x05, 0x00)
