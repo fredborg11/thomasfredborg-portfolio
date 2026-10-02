@@ -48,13 +48,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     {frontmatter.gallery?.length && (
       <div class="gallery">
         {frontmatter.gallery.map((image, index) => (
-          <figure class:list={[
-              "gallery-item",
-              {
-                "gallery-wide": index === 0 || index === 3,
-                "gallery-tall": index === 1
-              }
-            ]}>
+          <figure class={`gallery-item gallery-item-${index}`}>
             <img src={mediaUrl(image)} alt="" loading="lazy" />
           </figure>
         ))}
@@ -182,25 +176,21 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .gallery {
     margin-top: 22px;
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
   }
 
   .gallery-item {
-    grid-column: span 6;
+    grid-column: span 1;
     aspect-ratio: 4 / 3;
     background: var(--card);
     overflow: hidden;
   }
 
-  .gallery-wide {
+  .gallery-item-2,
+  .gallery-item-3 {
     grid-column: 1 / -1;
     aspect-ratio: 16 / 9;
-  }
-
-  .gallery-tall {
-    grid-column: span 5;
-    aspect-ratio: 4 / 5;
   }
 
   .gallery-item img {
@@ -327,9 +317,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     }
 
     .gallery-item,
-    .gallery-wide,
-    .gallery-tall {
-      grid-column: auto;
+    .gallery-item-2,
+    .gallery-item-3 {
+      grid-column: 1 / -1;
+      aspect-ratio: 4 / 3;
     }
 
     .body {
