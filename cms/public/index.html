@@ -373,15 +373,15 @@
         if (kind === "cover") {
           state.current.cover = data.path;
           renderCover(data.path);
-          status.textContent = "Upload complete";
+          status.textContent = "✓ Upload complete";
         } else if (kind === "gallery") {
           state.current.gallery = [...(state.current.gallery || []), data.path];
           renderGallery(state.current.gallery);
-          status.textContent = state.current.gallery.length + " billeder";
+          status.textContent = "✓ " + state.current.gallery.length + " billeder uploadet";
         } else {
           state.current.video = data.path;
           renderVideo(data.path);
-          status.textContent = "Upload complete";
+          status.textContent = "✓ Upload complete";
         }
       } catch (error) {
         status.textContent = "";
@@ -440,7 +440,9 @@
     }
 
     function mediaUrl(path) {
-      return path && path.startsWith("/") ? path : path || "";
+      return path && path.startsWith("/")
+        ? "https://fredborg11.github.io/thomasfredborg-portfolio" + path
+        : path || "";
     }
 
     function escapeHtml(value) {
