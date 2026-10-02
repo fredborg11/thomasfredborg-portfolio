@@ -4,14 +4,13 @@ slug: pisiffik-alkoholfri
 client: Pisiffik
 year: 2026
 category: Campaign
-role: Graphic Design / Art Direction
+role: Graphic Design / Visual Development
 tags:
   - Campaign
   - Retail
   - Graphic Design
   - Print
-  - Art Direction
-intro: En trykt retailkampagne, der skal gøre det lettere for Pisiffiks kunder at få øje på alkoholfri alternativer og skabe et lille skub i retning af 0.0%.
+intro: En trykt retailkampagne, der gør alkoholfri alternativer mere synlige i butikken og giver kunderne et lille skub i retning af 0.0%.
 cover: /media/1790931889221-pisiffik_alkoholfri-kampagne_pr-sentation-1.jpg
 gallery:
   - /media/1790931691840-alkoholfri-reklameskilte-i-supermarkedet.png
