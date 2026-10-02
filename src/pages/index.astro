@@ -112,10 +112,16 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     <p class="eyebrow">Contact</p>
     <div class="contact-content">
       <h2>Have a project, opportunity or <em>good idea?</em></h2>
-      <a class="contact-link" href="mailto:fredborg11@gmail.com">
-        <span>fredborg11@gmail.com</span>
-        <span>↗</span>
-      </a>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:fredborg11@gmail.com">
+          <span>fredborg11@gmail.com</span>
+          <span>↗</span>
+        </a>
+        <a class="contact-link" href="tel:+4528108213">
+          <span>+45 28 10 82 13</span>
+          <span>↗</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -378,8 +384,11 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     letter-spacing: -.045em;
   }
 
-  .contact-link {
+  .contact-links {
     margin-top: 70px;
+  }
+
+  .contact-link {
     padding: 17px 0;
     border-top: 1px solid var(--fg);
     border-bottom: 1px solid var(--line);
@@ -388,6 +397,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     gap: 20px;
     font-size: 13px;
     transition: opacity .2s ease;
+  }
+
+  .contact-link + .contact-link {
+    border-top: 0;
   }
 
   .contact-link:hover {
@@ -489,7 +502,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       font-size: clamp(38px, 11vw, 64px);
     }
 
-    .contact-link {
+    .contact-links {
       margin-top: 44px;
     }
   }
