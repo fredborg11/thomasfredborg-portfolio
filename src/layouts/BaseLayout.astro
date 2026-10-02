@@ -1,14 +1,28 @@
 ---
-const { title = "Thomas Fredborg — Graphic Designer / Art Director", description = "Portfolio of Thomas Fredborg." } = Astro.props;
+const {
+  title = "Thomas Fredborg — Graphic Designer / Art Director",
+  description = "Portfolio of Thomas Fredborg — graphic design, branding, retail, digital, packaging and print.",
+  image = ""
+} = Astro.props;
+const canonical = Astro.url;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 ---
 <!doctype html>
-<html lang="da">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f5f4f0" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
     <title>{title}</title>
     <link rel="icon" href={`${base}favicon.svg`} />
   </head>
@@ -22,7 +36,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
       <nav aria-label="Primary">
         <a href={`${base}#work`}>Work</a>
         <a href={`${base}#about`}>About</a>
-        <a href="mailto:hello@thomasfredborg.dk">Contact</a>
+        <a href={`${base}#contact`}>Contact</a>
       </nav>
     </header>
 
@@ -35,7 +49,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
         <span class="footer-label">Thomas Fredborg</span>
         <span class="footer-muted">Graphic Designer / Art Director</span>
       </div>
-      <a href="mailto:hello@thomasfredborg.dk">hello@thomasfredborg.dk</a>
+      <div class="footer-right">
+        <span class="footer-muted">Copenhagen / Denmark</span>
+        <a href="mailto:hello@thomasfredborg.dk">hello@thomasfredborg.dk</a>
+      </div>
     </footer>
   </body>
 </html>
@@ -135,6 +152,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     color: var(--muted);
   }
 
+  .footer-right {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
   .site-footer a:hover {
     color: var(--fg);
   }
@@ -158,9 +182,18 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
       display: block;
     }
 
-    .site-footer a {
-      display: inline-block;
+    .footer-right {
+      display: block;
       margin-top: 14px;
+    }
+
+    .footer-right span,
+    .footer-right a {
+      display: block;
+    }
+
+    .footer-right a {
+      margin-top: 8px;
     }
   }
 </style>
