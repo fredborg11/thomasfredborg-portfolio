@@ -107,7 +107,7 @@ async function isAuthenticated(request, env) {
     const payload = JSON.parse(new TextDecoder().decode(base64urlDecode(payloadB64)));
     if (!payload?.exp || payload.exp < Math.floor(Date.now() / 1000)) return false;
 
-    const secret = await hmacKey(env.SESSION_SECRET);
+    const secret = await hmacKey(env.SESSION_SECRET || env.ADMIN_PASSWORD);
     return await crypto.subtle.verify(
       "HMAC",
       secret,
@@ -126,7 +126,7 @@ async function signSession(env, seconds) {
     exp: Math.floor(Date.now() / 1000) + seconds
   };
   const payloadB64 = base64urlEncode(new TextEncoder().encode(JSON.stringify(payload)));
-  const key = await hmacKey(env.SESSION_SECRET);
+  const key = await hmacKey(env.SESSION_SECRET || env.ADMIN_PASSWORD);
   const signature = await crypto.subtle.sign(
     "HMAC",
     key,
@@ -172,7 +172,7 @@ async function getInstallationToken(env) {
   }
 
   const privateKeyText = String(env.GITHUB_PRIVATE_KEY || "").replace(/\\n/g, "\n").trim();
-  if (!env.GITHUB_APP_ID || !env.GITHUB_INSTALLATION_ID || !privateKeyText) {
+  if (!env.GITHUB_APP_ID || !privateKeyText) {
     throw new Error("GitHub App credentials are not configured.");
   }
 
@@ -188,8 +188,33 @@ async function getInstallationToken(env) {
     .setIssuer(String(env.GITHUB_APP_ID))
     .sign(key);
 
+  let installationId = String(env.GITHUB_INSTALLATION_ID || "");
+  if (!installationId) {
+    const installationsResponse = await fetch("https://api.github.com/app/installations?per_page=100", {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${jwt}`,
+        "X-GitHub-Api-Version": API_VERSION,
+        "User-Agent": "Thomas-Fredborg-Portfolio-CMS"
+      }
+    });
+
+    if (!installationsResponse.ok) {
+      const detail = await installationsResponse.text();
+      throw new Error(`Could not find GitHub App installation (${installationsResponse.status}): ${detail.slice(0, 500)}`);
+    }
+
+    const installations = await installationsResponse.json();
+    const match = installations.find((item) => item.account?.login?.toLowerCase() === OWNER.toLowerCase());
+    installationId = String(match?.id || "");
+  }
+
+  if (!installationId) {
+    throw new Error("GitHub App is not installed on the portfolio repository/account.");
+  }
+
   const response = await fetch(
-    `https://api.github.com/app/installations/${encodeURIComponent(env.GITHUB_INSTALLATION_ID)}/access_tokens`,
+    `https://api.github.com/app/installations/${encodeURIComponent(installationId)}/access_tokens`,
     {
       method: "POST",
       headers: {
