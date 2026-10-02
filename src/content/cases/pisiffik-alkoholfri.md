@@ -11,6 +11,7 @@ tags:
   - Graphic Design
   - Print
 intro: A printed retail campaign designed to make alcohol-free alternatives more visible in-store and give customers a small nudge towards 0.0%.
+updatedAt: 2026-10-02T09:28:34Z
 cover: /media/1790931889221-pisiffik_alkoholfri-kampagne_pr-sentation-1.jpg
 gallery:
   - /media/1790931691840-alkoholfri-reklameskilte-i-supermarkedet.png
