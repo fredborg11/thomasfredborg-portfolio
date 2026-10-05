@@ -53,6 +53,16 @@ content:
         label: Introduction
         type: text
 
+      - name: seoDescription
+        label: SEO description
+        type: text
+        description: 140–170 character description used in search results
+
+      - name: imageAlts
+        label: Image alt texts
+        type: string
+        list: true
+
       - name: cover
         label: Cover image
         type: image
