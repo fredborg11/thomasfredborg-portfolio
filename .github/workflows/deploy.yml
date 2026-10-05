@@ -72,6 +72,7 @@ jobs:
             add_url "https://thomasfredborg.dk/cases/pisiffik-loyalty-app/"
             add_url "https://thomasfredborg.dk/cases/pinetree-golf/"
             add_url "https://thomasfredborg.dk/cases/pisiffik-alkoholfri/"
+            add_url "https://thomasfredborg.dk/cases/simple-life-trope/"
           fi
 
           while IFS= read -r path; do
