@@ -29,10 +29,16 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     </h1>
 
     <div class="hero-bottom">
-      <p class="hero-copy">
-        13+ years of experience across retail, branding, campaigns,
-        digital, packaging, print and creative production.
-      </p>
+      <div class="hero-intro">
+        <p class="hero-copy">
+          13+ years of experience across retail, branding, campaigns,
+          digital, packaging, print and creative production.
+        </p>
+
+        <p class="hero-capabilities" aria-label="Core design disciplines">
+          BRAND <span>·</span> DIGITAL <span>·</span> RETAIL <span>·</span> PACKAGING <span>·</span> PRINT <span>·</span> UI
+        </p>
+      </div>
 
       <a class="scroll-link" href="#work">
         <span>Selected work</span>
@@ -192,12 +198,31 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     gap: 40px;
   }
 
+  .hero-intro {
+    max-width: 620px;
+    margin-left: 31%;
+  }
+
   .hero-copy {
     max-width: 440px;
-    margin: 0 0 0 31%;
+    margin: 0;
     font-size: 15px;
     line-height: 1.55;
     color: var(--muted);
+  }
+
+  .hero-capabilities {
+    margin: 24px 0 0;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: .13em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .hero-capabilities span {
+    margin: 0 7px;
+    color: var(--line);
   }
 
   .scroll-link {
@@ -447,8 +472,12 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       margin-bottom: 13vh;
     }
 
-    .hero-copy {
+    .hero-intro {
       margin-left: 0;
+      max-width: 620px;
+    }
+
+    .hero-copy {
       max-width: 480px;
     }
 
@@ -490,6 +519,17 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       max-width: 390px;
       font-size: 14px;
       line-height: 1.55;
+    }
+
+    .hero-capabilities {
+      margin-top: 18px;
+      font-size: 8px;
+      letter-spacing: .1em;
+      white-space: normal;
+    }
+
+    .hero-capabilities span {
+      margin: 0 5px;
     }
 
     .scroll-link {
