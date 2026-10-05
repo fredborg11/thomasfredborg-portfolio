@@ -151,12 +151,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       <Content />
     </div>
 
-    <nav class="case-navigation" aria-label="Case navigation">
-      <a class="case-nav-back" href={base}>
-        <span>All work</span>
-        <span>↗</span>
-      </a>
-    </nav>
+    <a class="next-case" href={base}>
+      <span>Back to selected work</span>
+      <span>↗</span>
+    </a>
   </article>
 
 <script>
