@@ -19,6 +19,7 @@ const siteUrl = Astro.site?.toString() ?? "https://thomasfredborg.dk/";
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href={new URL("sitemap-index.xml", siteUrl)} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Thomas Fredborg" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -26,6 +27,7 @@ const siteUrl = Astro.site?.toString() ?? "https://thomasfredborg.dk/";
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    {image && <meta name="twitter:image" content={new URL(image, Astro.site)} />}
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -36,6 +38,18 @@ const siteUrl = Astro.site?.toString() ?? "https://thomasfredborg.dk/";
           name: "Thomas Fredborg",
           url: siteUrl,
           jobTitle: "Graphic Designer / Art Director",
+          knowsAbout: [
+            "Graphic Design",
+            "Art Direction",
+            "Brand Identity",
+            "Visual Identity",
+            "Packaging Design",
+            "Retail Design",
+            "Digital Design",
+            "UI Design",
+            "Print Design",
+            "Campaign Design"
+          ],
           sameAs: ["https://www.linkedin.com/in/tfn/"]
         },
         {
