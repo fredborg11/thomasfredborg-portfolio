@@ -72,6 +72,11 @@ content:
           extensions: [jpg, jpeg, png, webp]
           rename: safe
 
+      - name: galleryLabels
+        label: Gallery labels
+        type: string
+        list: true
+
       - name: video
         label: Video
         type: file
