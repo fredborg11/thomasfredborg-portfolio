@@ -34,6 +34,7 @@ const { entry, nextCase } = Astro.props;
 const { Content } = entry;
 const frontmatter = entry.frontmatter;
 const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
+const isSimpleLife = frontmatter.slug === "simple-life-trope";
 const seoTitleMap = {
   "pinetree-golf": "Pinetree Golf — Brand Identity | Thomas Fredborg",
   "pisiffik-alkoholfri": "Alcohol-Free Campaign — Retail Design | Thomas Fredborg",
@@ -141,6 +142,35 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           </section>
         )}
       </div>
+    ) : isSimpleLife ? (
+      <>
+        <div class="body packaging-body">
+          <Content />
+        </div>
+
+        {frontmatter.gallery?.length && (
+          <section class="packaging-gallery-section" aria-label="Simple Life by Trope packaging collection">
+            <div class="media-kicker">01 / The collection</div>
+            <div class="packaging-gallery">
+              {frontmatter.gallery.map((image, index) => (
+                <figure class="packaging-gallery-item">
+                  <div class="packaging-image">
+                    <img
+                      src={mediaUrl(image)}
+                      alt={frontmatter.imageAlts?.[index + 1] ?? `${frontmatter.title} — product ${index + 1}`}
+                      loading={index > 1 ? "lazy" : "eager"}
+                      decoding="async"
+                    />
+                  </div>
+                  {frontmatter.galleryLabels?.[index] && (
+                    <figcaption>{frontmatter.galleryLabels[index]}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+      </>
     ) : (
       <>
         {frontmatter.gallery?.length && (
@@ -165,12 +195,12 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
             </video>
           </div>
         )}
+
+        <div class="body">
+          <Content />
+        </div>
       </>
     )}
-
-    <div class="body">
-      <Content />
-    </div>
 
     <div class="case-navigation">
       <a class="next-case" href={base}>
@@ -358,6 +388,57 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .hero-image img {
     max-height: 78vh;
     object-fit: cover;
+  }
+
+  .packaging-body {
+    margin-top: 11vh;
+    margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .packaging-body :global(h2) {
+    margin-top: 2.4em;
+  }
+
+  .packaging-gallery-section {
+    margin-top: 3vh;
+  }
+
+  .packaging-gallery {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .packaging-gallery-item {
+    display: grid;
+    gap: 12px;
+  }
+
+  .packaging-image {
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .packaging-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .packaging-gallery-item:hover .packaging-image img {
+    transform: scale(1.015);
+  }
+
+  .packaging-gallery-item figcaption {
+    font-size: 11px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
   }
 
   .gallery {
@@ -754,6 +835,28 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
     .video-stage video {
       max-height: 76vh;
+    }
+
+    .packaging-body {
+      margin-top: 8vh;
+      margin-bottom: 10vh;
+    }
+
+    .packaging-gallery {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .packaging-gallery-section {
+      margin-top: 0;
+    }
+
+    .packaging-gallery-item {
+      gap: 10px;
+    }
+
+    .packaging-gallery-item figcaption {
+      font-size: 9px;
     }
 
     .gallery {
