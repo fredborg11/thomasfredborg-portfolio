@@ -3,13 +3,34 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
   const entries = import.meta.glob("../../content/cases/*.md", { eager: true });
-  return Object.entries(entries).map(([file, entry]) => ({
-    params: { slug: file.split("/").pop()?.replace(/\.md$/, "") },
-    props: { entry },
+
+  const cases = Object.entries(entries)
+    .map(([file, entry]) => ({
+      slug: file.split("/").pop()?.replace(/\.md$/, ""),
+      entry,
+    }))
+    .sort((a, b) => {
+      const aTime = Date.parse(a.entry.frontmatter.updatedAt ?? "") || 0;
+      const bTime = Date.parse(b.entry.frontmatter.updatedAt ?? "") || 0;
+      if (aTime !== bTime) return bTime - aTime;
+      return Number(b.entry.frontmatter.year ?? 0) - Number(a.entry.frontmatter.year ?? 0);
+    });
+
+  return cases.map((item, index) => ({
+    params: { slug: item.slug },
+    props: {
+      entry: item.entry,
+      nextCase: cases[index + 1]
+        ? {
+            slug: cases[index + 1].slug,
+            title: cases[index + 1].entry.frontmatter.title,
+          }
+        : null,
+    },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, nextCase } = Astro.props;
 const { Content } = entry;
 const frontmatter = entry.frontmatter;
 const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
@@ -151,10 +172,19 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       <Content />
     </div>
 
-    <a class="next-case" href={base}>
-      <span>Back to selected work</span>
-      <span>↗</span>
-    </a>
+    <div class="case-navigation">
+      <a class="next-case" href={base}>
+        <span>Back to selected work</span>
+        <span>↗</span>
+      </a>
+
+      {nextCase && (
+        <a class="next-case" href={`${base}cases/${nextCase.slug}/`}>
+          <span>Next case — {nextCase.title}</span>
+          <span>→</span>
+        </a>
+      )}
+    </div>
   </article>
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -498,13 +528,21 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     margin: 0 0 .5em;
   }
 
-  .next-case {
+  .case-navigation {
     margin-top: 17vh;
+  }
+
+  .next-case {
     padding-top: 18px;
     border-top: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
     font-size: 12px;
+  }
+
+  .next-case + .next-case {
+    border-top: 0;
+    padding-top: 10px;
   }
 
   .next-case span:first-child {
