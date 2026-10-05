@@ -16,8 +16,8 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 ---
 
 <BaseLayout
-  title="Thomas Fredborg — Graphic Designer / Art Director"
-  description="Portfolio of Thomas Fredborg — graphic design, branding, retail, digital, packaging and motion."
+  title="Thomas Fredborg — Graphic Designer / Art Director | Copenhagen, Denmark"
+  description="Portfolio of Thomas Fredborg, a graphic designer and art director working across branding, visual identity, campaigns, retail, packaging, print, digital design and UI."
 >
   <section class="hero">
     <p class="eyebrow">Graphic Designer / Art Director</p>
@@ -55,7 +55,12 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           <a class:list={["project", { featured }]} href={`${base}cases/${slug}/`}>
             <div class="project-media">
               {cover ? (
-                <img src={mediaUrl(cover)} alt="" loading={index > 1 ? "lazy" : "eager"} />
+                <img
+                  src={mediaUrl(cover)}
+                  alt={`${item.frontmatter.title} — ${item.frontmatter.client ?? "selected work"}`}
+                  loading={index > 1 ? "lazy" : "eager"}
+                  decoding="async"
+                />
               ) : (
                 <div class="project-placeholder">
                   <span>{item.frontmatter.category ?? "Graphic Design"}</span>
@@ -90,8 +95,9 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
       <div class="about-grid">
         <p>
-          I work across branding, campaigns, retail, print, digital design,
-          packaging and motion — from first brief to final delivery.
+          I'm a graphic designer and art director working across brand identity,
+          campaigns, retail, packaging, print, digital design and UI — from first
+          brief to final delivery.
         </p>
         <p>
           With 13+ years of experience, my approach is grounded in commercial
