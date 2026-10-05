@@ -90,7 +90,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       <figure class="hero-image">
         <img
           src={mediaUrl(frontmatter.cover)}
-          alt={`${frontmatter.title} — cover image`}
+          alt={frontmatter.imageAlts?.[0] ?? `${frontmatter.title} — cover image`}
           decoding="async"
         />
       </figure>
@@ -238,7 +238,8 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
         url: Astro.url,
         name: seoTitle,
         description: frontmatter.seoDescription ?? frontmatter.intro ?? "Selected work by Thomas Fredborg.",
-        isPartOf: { "@id": `${Astro.site?.toString() ?? "https://thomasfredborg.dk/"}#website` }
+        isPartOf: { "@id": `${Astro.site?.toString() ?? "https://thomasfredborg.dk/"}#website` },
+        mainEntity: { "@id": `${Astro.url}#project` }
       },
       {
         "@type": "BreadcrumbList",
