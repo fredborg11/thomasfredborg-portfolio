@@ -40,6 +40,20 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       {frontmatter.tags?.length && <div><span>Focus</span><strong>{frontmatter.tags.join(" · ")}</strong></div>}
     </div>
 
+    <section class="mobile-details" aria-label="Case information">
+      {frontmatter.intro && (
+        <details class="mobile-detail">
+          <summary>Overview</summary>
+          <div class="mobile-detail-content">
+            <p>{frontmatter.intro}</p>
+          </div>
+        </details>
+      )}
+      <div class="mobile-body">
+        <Content />
+      </div>
+    </section>
+
     {frontmatter.cover && (
       <figure class="hero-image">
         <img src={mediaUrl(frontmatter.cover)} alt="" />
@@ -225,6 +239,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     background: #171715;
   }
 
+  .mobile-details {
+    display: none;
+  }
+
   .body {
     max-width: 820px;
     margin: 15vh auto 0;
@@ -372,6 +390,98 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     .facts strong {
       font-size: 11px;
       line-height: 1.35;
+    }
+
+    .mobile-details {
+      display: block;
+      margin-bottom: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-detail {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mobile-detail > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 15px 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 500;
+    }
+
+    .mobile-detail > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-detail > summary::after {
+      content: "+";
+      font-size: 16px;
+      line-height: 1;
+      color: var(--muted);
+      transition: transform .2s ease;
+    }
+
+    .mobile-detail[open] > summary::after {
+      content: "−";
+    }
+
+    .mobile-detail-content {
+      padding: 0 0 17px;
+      font-size: 14px;
+      line-height: 1.58;
+      color: var(--muted);
+    }
+
+    .mobile-detail-content p {
+      margin: 0;
+    }
+
+    .mobile-body {
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .mobile-body.is-enhanced {
+      display: grid;
+    }
+
+    .mobile-body .mobile-detail {
+      display: block;
+    }
+
+    .mobile-body .mobile-detail-content :global(h2),
+    .mobile-body .mobile-detail-content :global(p),
+    .mobile-body .mobile-detail-content :global(ul),
+    .mobile-body .mobile-detail-content :global(blockquote) {
+      margin-top: 0;
+    }
+
+    .mobile-body .mobile-detail-content :global(p) {
+      margin-bottom: 1.1em;
+    }
+
+    .mobile-body .mobile-detail-content :global(ul) {
+      grid-template-columns: 1fr;
+      margin-top: .8em;
+    }
+
+    .mobile-body .mobile-detail-content :global(li) {
+      font-size: 13px;
+      padding: 11px 0 12px;
+    }
+
+    .mobile-body .mobile-detail-content :global(blockquote) {
+      font-size: 28px;
+      margin: .4em 0 1em;
+    }
+
+    .body {
+      display: none;
     }
 
     .hero-image img {
