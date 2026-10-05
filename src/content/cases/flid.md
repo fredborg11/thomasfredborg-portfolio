@@ -15,8 +15,9 @@ intro: A new visual identity for FLID, developed around movement, maritime chara
 cover: /media/1791208678134-flid-logo-over-et-roligt-hav.png
 gallery:
   - /media/1791208684044-flid-brandmanual-ved-havnen.png
+  - /media/1791208727623-havnemagasiner-pa-kajen.png
 video: ""
-updatedAt: 2026-10-05T13:58:10.819Z
+updatedAt: 2026-10-05T13:58:55.361Z
 ---
 ## The brief
 
