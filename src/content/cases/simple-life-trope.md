@@ -29,14 +29,14 @@ galleryLabels:
   - Trommestikker
   - UFO'er
 updatedAt: 2026-10-05T11:40:00Z
-cover: /media/simple-life-trope-hero.png
+cover: /media/1791200891032-farverig-snackfest-med-seks-poser.png
 gallery:
-  - /media/simple-life-gorilla-guf.jpg
-  - /media/simple-life-guldklumper.jpg
-  - /media/simple-life-kapow.jpg
-  - /media/simple-life-ninja-kugler.jpg
-  - /media/simple-life-trommestikker.jpg
-  - /media/simple-life-ufoer.jpg
+  - /media/1791200942852-gorilla-guf-bananchips-i-gyldent-lys.png
+  - /media/1791200947950-guldklumper-i-gylden-snackfest.png
+  - /media/1791200952707-klassisk-kapow-med-st-rkt-chiliboost.png
+  - /media/1791200956974-ninja-kugler-i-eksplosivt-snackunivers.png
+  - /media/1791200961468-trommestikker-i-lilla-snackeksplosion.png
+  - /media/1791200965475-ufo-er-i-gyldent-ostesv-vende-univers.png
 video: ""
 ---
 
