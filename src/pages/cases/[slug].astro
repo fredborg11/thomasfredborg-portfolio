@@ -25,7 +25,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
 <BaseLayout
   title={seoTitle}
-  description={frontmatter.intro ?? "Selected work by Thomas Fredborg."}
+  description={frontmatter.seoDescription ?? frontmatter.intro ?? "Selected work by Thomas Fredborg."}
   image={frontmatter.cover ?? ""}
 >
   <article class="case">
@@ -81,7 +81,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                 <figure class={`gallery-item gallery-item-${index}`}>
                   <img
                     src={mediaUrl(image)}
-                    alt={`${frontmatter.title} — project image ${index + 1}`}
+                    alt={frontmatter.imageAlts?.[index] ?? `${frontmatter.title} — project image ${index + 1}`}
                     loading="lazy"
                     decoding="async"
                   />
@@ -151,10 +151,12 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       <Content />
     </div>
 
-    <a class="next-case" href={base}>
-      <span>Back to selected work</span>
-      <span>↗</span>
-    </a>
+    <nav class="case-navigation" aria-label="Case navigation">
+      <a class="case-nav-back" href={base}>
+        <span>All work</span>
+        <span>↗</span>
+      </a>
+    </nav>
   </article>
 
 <script>
