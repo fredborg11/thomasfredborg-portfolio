@@ -36,3 +36,60 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  indexnow:
+    needs: deploy
+    if: ${{ github.event_name == 'push' && needs.deploy.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          INDEXNOW_KEY: 4bffaf012d134f16871e37c0f115342f
+          INDEXNOW_KEY_LOCATION: https://thomasfredborg.dk/4bffaf012d134f16871e37c0f115342f.txt
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          changed="$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA" 2>/dev/null || true)"
+          urls=()
+
+          add_url() {
+            local url="$1"
+            for existing in "${urls[@]:-}"; do
+              [ "$existing" = "$url" ] && return
+            done
+            urls+=("$url")
+          }
+
+          if printf '%s\n' "$changed" | grep -qE '^(src/layouts/BaseLayout\.astro|src/pages/index\.astro|src/pages/cases/\[slug\]\.astro)$'; then
+            add_url "https://thomasfredborg.dk/"
+            add_url "https://thomasfredborg.dk/cases/pisiffik-loyalty-app/"
+            add_url "https://thomasfredborg.dk/cases/pinetree-golf/"
+            add_url "https://thomasfredborg.dk/cases/pisiffik-alkoholfri/"
+          fi
+
+          while IFS= read -r path; do
+            [ -z "$path" ] && continue
+            slug="$(basename "$path" .md)"
+            add_url "https://thomasfredborg.dk/cases/$slug/"
+          done < <(printf '%s\n' "$changed" | grep -E '^src/content/cases/[^/]+\.md$' || true)
+
+          if [ "${#urls[@]}" -eq 0 ]; then
+            echo "No page changes detected; skipping IndexNow."
+            exit 0
+          fi
+
+          printf 'Submitting %s URL(s) to IndexNow:\n' "${#urls[@]}"
+          printf ' - %s\n' "${urls[@]}"
+
+          url_json="$(printf '%s\n' "${urls[@]}" | python -c 'import json,sys; print(json.dumps([x.strip() for x in sys.stdin if x.strip()]))')"
+
+          curl --fail-with-body --request POST "https://api.indexnow.org/indexnow" \
+            --header "Content-Type: application/json; charset=utf-8" \
+            --data "{"host":"thomasfredborg.dk","key":"$INDEXNOW_KEY","keyLocation":"$INDEXNOW_KEY_LOCATION","urlList":$url_json}"
