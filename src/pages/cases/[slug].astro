@@ -12,6 +12,7 @@ export function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = entry;
 const frontmatter = entry.frontmatter;
+const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : path;
 ---
@@ -60,22 +61,65 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       </figure>
     )}
 
-    {frontmatter.gallery?.length && (
-      <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
-        {frontmatter.gallery.map((image, index) => (
-          <figure class={`gallery-item gallery-item-${index}`}>
-            <img src={mediaUrl(image)} alt="" loading="lazy" />
-          </figure>
-        ))}
-      </div>
-    )}
+    {isLoyaltyApp ? (
+      <div class="loyalty-media">
+        {frontmatter.gallery?.length >= 3 && (
+          <section class="media-section">
+            <div class="media-kicker">01 / Digital experience</div>
+            <div class="gallery loyalty-gallery loyalty-gallery-digital">
+              {frontmatter.gallery.slice(0, 3).map((image, index) => (
+                <figure class={`gallery-item gallery-item-${index}`}>
+                  <img src={mediaUrl(image)} alt="" loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
-    {frontmatter.video && (
-      <div class="video-wrap">
-        <video controls playsinline preload="metadata">
-          <source src={mediaUrl(frontmatter.video)} />
-        </video>
+        {frontmatter.video && (
+          <section class="media-section launch-animation">
+            <div class="media-kicker">02 / Motion</div>
+            <div class="video-stage">
+              <video controls playsinline preload="metadata">
+                <source src={mediaUrl(frontmatter.video)} />
+              </video>
+            </div>
+          </section>
+        )}
+
+        {frontmatter.gallery?.length > 3 && (
+          <section class="media-section">
+            <div class="media-kicker">03 / Physical retail</div>
+            <div class="gallery loyalty-gallery loyalty-gallery-physical">
+              {frontmatter.gallery.slice(3).map((image, index) => (
+                <figure class={`gallery-item gallery-item-${index + 3}`}>
+                  <img src={mediaUrl(image)} alt="" loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
+    ) : (
+      <>
+        {frontmatter.gallery?.length && (
+          <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
+            {frontmatter.gallery.map((image, index) => (
+              <figure class={`gallery-item gallery-item-${index}`}>
+                <img src={mediaUrl(image)} alt="" loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        )}
+
+        {frontmatter.video && (
+          <div class="video-wrap">
+            <video controls playsinline preload="metadata">
+              <source src={mediaUrl(frontmatter.video)} />
+            </video>
+          </div>
+        )}
+      </>
     )}
 
     <div class="body">
@@ -274,6 +318,61 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
   .gallery-item:hover img {
     transform: scale(1.012);
+  }
+
+  .loyalty-media {
+    display: grid;
+    gap: clamp(70px, 10vw, 150px);
+  }
+
+  .media-section {
+    display: grid;
+    gap: 14px;
+  }
+
+  .media-kicker {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--muted);
+  }
+
+  .loyalty-gallery {
+    margin-top: 0;
+  }
+
+  .loyalty-gallery-digital .gallery-item-0,
+  .loyalty-gallery-digital .gallery-item-1 {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .loyalty-gallery-digital .gallery-item-2 {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .loyalty-gallery-physical .gallery-item {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .video-stage {
+    min-height: min(76vh, 860px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(28px, 5vw, 70px);
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .video-stage video {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 74vh;
+    height: auto;
   }
 
   .video-wrap {
@@ -527,6 +626,40 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
     .hero-image img {
       max-height: none;
+    }
+
+    .loyalty-media {
+      gap: 58px;
+    }
+
+    .media-section {
+      gap: 10px;
+    }
+
+    .media-kicker {
+      font-size: 9px;
+    }
+
+    .loyalty-gallery {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .loyalty-gallery-digital .gallery-item-0,
+    .loyalty-gallery-digital .gallery-item-1,
+    .loyalty-gallery-digital .gallery-item-2,
+    .loyalty-gallery-physical .gallery-item {
+      grid-column: 1 / -1;
+      aspect-ratio: 4 / 3;
+    }
+
+    .video-stage {
+      min-height: auto;
+      padding: 18px;
+    }
+
+    .video-stage video {
+      max-height: 76vh;
     }
 
     .gallery {
