@@ -14,6 +14,15 @@ tags:
   - UI
   - Print
 intro: A long-term loyalty app project spanning digital product design, customer journeys and physical retail communication — from the first version in 2021 to a major visual update in 2025.
+seoDescription: App and visual design for Pisiffik's loyalty experience, spanning UI, customer journeys, campaigns, loyalty, physical retail and launch motion.
+imageAlts:
+  - Pisiffik loyalty app showcase with smartphone screens
+  - Pisiffik loyalty app screens showing campaigns, game, recipes and webshop
+  - Pisiffik loyalty app customer journey from discovery to loyalty
+  - Pisiffik loyalty programme hanging signs in a supermarket checkout area
+  - Pisiffik shopping bag promoting the loyalty app and points programme
+  - Pisiffik loyalty app point and download signage in a supermarket aisle
+  - Pisiffik checkout display promoting loyalty points and app benefits
 cover: /media/1791185815010-loyalitetsapp-i-supermarkedet.png
 gallery:
   - /media/1791185841970-minimalist-pisiffik-app-showcase-med-smartphones.png
