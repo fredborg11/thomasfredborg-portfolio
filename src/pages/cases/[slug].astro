@@ -175,7 +175,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
             "@type": "ListItem",
             position: 1,
             name: "Selected Work",
-            item: new URL(".", base).toString()
+            item: new URL(base, Astro.site).toString()
           },
           {
             "@type": "ListItem",
