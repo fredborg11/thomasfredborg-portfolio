@@ -12,15 +12,12 @@ tags:
   - Print
   - Visual Identity
 intro: A new visual identity for FLID, developed around movement, maritime character and a flexible design system applied across branding, editorial and digital touchpoints.
-seoDescription: Brand identity, logo design and editorial design for FLID, including a new visual identity, design manual, 56-page quarterly magazine and branded communication.
-imageAlts: []
-cover: ""
-gallery: []
-galleryLabels: []
+cover: /media/1791208678134-flid-logo-over-et-roligt-hav.png
+gallery:
+  - /media/1791208684044-flid-brandmanual-ved-havnen.png
 video: ""
-updatedAt: 2026-10-05T13:45:00Z
+updatedAt: 2026-10-05T13:58:10.819Z
 ---
-
 ## The brief
 
 In 2020, Foreningen af Lystbådehavne i Danmark wanted a new visual direction that could better reflect the organisation and the movement within its industry.
