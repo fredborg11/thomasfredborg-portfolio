@@ -126,7 +126,12 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
             {frontmatter.gallery.map((image, index) => (
               <figure class={`gallery-item gallery-item-${index}`}>
-                <img src={mediaUrl(image)} alt="" loading="lazy" />
+                <img
+                  src={mediaUrl(image)}
+                  alt={`${frontmatter.title} — project image ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                />
               </figure>
             ))}
           </div>
