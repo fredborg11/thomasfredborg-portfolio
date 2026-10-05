@@ -88,8 +88,28 @@ jobs:
           printf 'Submitting %s URL(s) to IndexNow:\n' "${#urls[@]}"
           printf ' - %s\n' "${urls[@]}"
 
-          url_json="$(printf '%s\n' "${urls[@]}" | python -c 'import json,sys; print(json.dumps([x.strip() for x in sys.stdin if x.strip()]))')"
+          export URL_JSON="$(printf '%s\n' "${urls[@]}" | python -c 'import json,sys; print(json.dumps([x.strip() for x in sys.stdin if x.strip()]))')"
 
-          curl --fail-with-body --request POST "https://api.indexnow.org/indexnow" \
-            --header "Content-Type: application/json; charset=utf-8" \
-            --data "{"host":"thomasfredborg.dk","key":"$INDEXNOW_KEY","keyLocation":"$INDEXNOW_KEY_LOCATION","urlList":$url_json}"
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          payload = {
+              "host": "thomasfredborg.dk",
+              "key": os.environ["INDEXNOW_KEY"],
+              "keyLocation": os.environ["INDEXNOW_KEY_LOCATION"],
+              "urlList": json.loads(os.environ["URL_JSON"]),
+          }
+
+          data = json.dumps(payload).encode("utf-8")
+          request = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=data,
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST",
+          )
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              print(f"IndexNow response: {response.status}")
+          PY
