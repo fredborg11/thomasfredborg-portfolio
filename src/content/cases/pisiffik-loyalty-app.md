@@ -4,7 +4,7 @@ slug: pisiffik-loyalty-app
 client: Pisiffik
 year: 2025
 category: Digital / Loyalty
-role: Lead Graphic Designer / Visual Design
+role: Graphic Design / Visual Direction
 tags:
   - App Design
   - Digital
@@ -24,7 +24,7 @@ gallery:
   - /media/1791185906689-loftskilt_mockup.jpg
   - /media/1791185911496-vareskiller.jpg
 video: /media/1791186037886-pisiffik-app-startup-animation.mp4
-updatedAt: 2026-10-05T07:40:48.985Z
+updatedAt: 2026-10-05T07:42:56.007Z
 ---
 ## The project
 
@@ -68,6 +68,12 @@ The app brings several parts of the Pisiffik customer relationship together in o
 The interface includes the loyalty points experience, digital membership card, receipts, offers, notifications, campaigns, recipes, games and webshop functionality.
 
 I worked on the visual design and presentation of these customer-facing experiences, with a focus on making the different parts feel connected and easy to understand.
+
+## Launch animation
+
+For the launch of the updated app, I created the opening animation used to introduce the new visual expression before entering the app experience.
+
+The animation translates the visual language of the interface into motion and gives the updated app a distinct, recognisable opening.
 
 ## Loyalty & engagement
 
