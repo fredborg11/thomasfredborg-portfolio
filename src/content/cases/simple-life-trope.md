@@ -12,27 +12,17 @@ tags:
   - Retail
   - Branding
 intro: A playful six-product snack series created to stand out as spot products in Rema 1000 and appeal to a younger audience through bold colour, character and humour.
-seoDescription: Packaging design and illustration for Simple Life by Trope, covering naming, visual development, custom characters, typography, colour and final artwork for a six-product snack series sold in Rema 1000.
-imageAlts:
-  - Simple Life by Trope snack packaging collection featuring six colourful products
-  - Simple Life by Trope Gorilla Guf banana chips packaging
-  - Simple Life by Trope Guldklumper honey-roasted peanuts packaging
-  - Simple Life by Trope Kapow spicy rice cakes packaging
-  - Simple Life by Trope Ninja Kugler peanut snack packaging
-  - Simple Life by Trope Trommestikker crunchy sticks packaging
-  - Simple Life by Trope UFO'er cheese-flavoured snack packaging
-updatedAt: 2026-10-05T11:27:00Z
-cover: /media/simple-life-trope-hero.png
+cover: /media/1791200891032-farverig-snackfest-med-seks-poser.png
 gallery:
-  - /media/simple-life-gorilla-guf.jpg
-  - /media/simple-life-guldklumper.jpg
-  - /media/simple-life-kapow.jpg
-  - /media/simple-life-ninja-kugler.jpg
-  - /media/simple-life-trommestikker.jpg
-  - /media/simple-life-ufoer.jpg
+  - /media/1791200942852-gorilla-guf-bananchips-i-gyldent-lys.png
+  - /media/1791200947950-guldklumper-i-gylden-snackfest.png
+  - /media/1791200952707-klassisk-kapow-med-st-rkt-chiliboost.png
+  - /media/1791200956974-ninja-kugler-i-eksplosivt-snackunivers.png
+  - /media/1791200961468-trommestikker-i-lilla-snackeksplosion.png
+  - /media/1791200965475-ufo-er-i-gyldent-ostesv-vende-univers.png
 video: ""
+updatedAt: 2026-10-05T11:49:42.923Z
 ---
-
 ## The brief
 
 Simple Life by Trope wanted a completely new and playful take on a range of snack bags covering banana chips, honey-roasted peanuts, spicy rice cakes, crunchy peanut balls, crunchy corn and potato sticks, and cheese-flavoured chips.
