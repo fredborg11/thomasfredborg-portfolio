@@ -125,34 +125,48 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     <p class="eyebrow">About</p>
 
     <div class="about-content">
-      <h2>Design should look right. More importantly, it should <em>work right.</em></h2>
-
-      <div class="about-grid">
-        <p>
-          I'm a graphic designer and art director working across brand identity,
-          campaigns, retail, packaging, print, digital design and UI — from first
-          brief to final delivery.
-        </p>
-        <p>
-          With 13+ years of experience, my approach is grounded in commercial
-          design: clear ideas, strong visual systems and work that holds up
-          across real formats, deadlines and customer touchpoints. I work across
-          Copenhagen, Zealand and remote collaborations.
-        </p>
+      <div class="about-profile">
+        <figure class="about-portrait">
+          <img
+            src={mediaUrl("/media/Afslappet portræt i kreativt atelier.png")}
+            alt="Thomas Fredborg — Graphic Designer and Art Director"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <p class="about-caption">Thomas Fredborg · Graphic Designer / Art Director</p>
       </div>
 
-      <div class="capabilities">
-        <div>
-          <span class="capability-label">Core</span>
-          <span>Branding · Campaigns · Retail · Print</span>
+      <div class="about-copy">
+        <h2>Design should look right. More importantly, it should <em>work right.</em></h2>
+
+        <div class="about-grid">
+          <p>
+            I'm a graphic designer and art director working across brand identity,
+            campaigns, retail, packaging, print, digital design and UI — from first
+            brief to final delivery.
+          </p>
+          <p>
+            With 13+ years of experience, my approach is grounded in commercial
+            design: clear ideas, strong visual systems and work that holds up
+            across real formats, deadlines and customer touchpoints. I work across
+            Copenhagen, Zealand and remote collaborations.
+          </p>
         </div>
-        <div>
-          <span class="capability-label">Also</span>
-          <span>Packaging · Digital · UI · Motion</span>
-        </div>
-        <div>
-          <span class="capability-label">Location</span>
-          <span>Copenhagen · Zealand · Denmark</span>
+
+        <div class="capabilities">
+          <div>
+            <span class="capability-label">Core</span>
+            <span>Branding · Campaigns · Retail · Print</span>
+          </div>
+          <div>
+            <span class="capability-label">Also</span>
+            <span>Packaging · Digital · UI · Motion</span>
+          </div>
+          <div>
+            <span class="capability-label">Location</span>
+            <span>Copenhagen · Zealand · Denmark</span>
+          </div>
         </div>
       </div>
     </div>
@@ -389,7 +403,46 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     gap: 5vw;
   }
 
-  .about-content h2 {
+  .about-content {
+    display: grid;
+    grid-template-columns: minmax(250px, .34fr) minmax(0, .66fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+  }
+
+  .about-profile {
+    min-width: 0;
+  }
+
+  .about-portrait {
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .about-portrait img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 50% 38%;
+  }
+
+  .about-caption {
+    margin: 10px 0 0;
+    font-size: 10px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: .11em;
+    color: var(--muted);
+  }
+
+  .about-copy {
+    min-width: 0;
+  }
+
+  .about-copy h2 {
     margin: 0;
     max-width: 1050px;
     font-size: clamp(38px, 5.3vw, 76px);
@@ -611,6 +664,15 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     .project-tags span {
       font-size: 8px;
       padding: 4px 6px;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    .about-portrait {
+      aspect-ratio: 4 / 3;
     }
 
     .about-grid {
