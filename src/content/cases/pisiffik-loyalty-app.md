@@ -14,12 +14,18 @@ tags:
   - UI
   - Print
 intro: A long-term loyalty app project spanning digital product design, customer journeys and physical retail communication — from the first version in 2021 to a major visual update in 2025.
-cover: ""
-gallery: []
-video: ""
-updatedAt: 2026-10-05T07:35:00Z
+cover: /media/1791185815010-loyalitetsapp-i-supermarkedet.png
+gallery:
+  - /media/1791185841970-minimalist-pisiffik-app-showcase-med-smartphones.png
+  - /media/1791185846800-pisiffik-app-pa-fire-smartphones.png
+  - /media/1791185851026-pisiffik-appens-kunderejse-i-seks-trin.png
+  - /media/1791185897039-h-ngeskilte_mockup.jpg
+  - /media/1791185902569-indk-bspose_mockup_2.jpg
+  - /media/1791185906689-loftskilt_mockup.jpg
+  - /media/1791185911496-vareskiller.jpg
+video: /media/1791186037886-pisiffik-app-startup-animation.mp4
+updatedAt: 2026-10-05T07:40:48.985Z
 ---
-
 ## The project
 
 The Pisiffik loyalty app is a long-term customer experience project that began with the first version of the app in 2021.
