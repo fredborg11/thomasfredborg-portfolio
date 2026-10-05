@@ -157,6 +157,37 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     </a>
   </article>
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${Astro.url}#webpage`,
+        url: Astro.url,
+        name: seoTitle,
+        description: frontmatter.seoDescription ?? frontmatter.intro ?? "Selected work by Thomas Fredborg.",
+        isPartOf: { "@id": `${Astro.site?.toString() ?? "https://thomasfredborg.dk/"}#website` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Selected Work",
+            item: new URL(".", base).toString()
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: frontmatter.title,
+            item: Astro.url.toString()
+          }
+        ]
+      }
+    ]
+  })}></script>
+
 <script>
   (() => {
     const enhanceMobileCase = () => {
