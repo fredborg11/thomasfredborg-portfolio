@@ -43,7 +43,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     <section class="mobile-details" aria-label="Case information">
       {frontmatter.intro && (
         <details class="mobile-detail">
-          <summary>Overview</summary>
+          <summary>Description</summary>
           <div class="mobile-detail-content">
             <p>{frontmatter.intro}</p>
           </div>
@@ -375,8 +375,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     }
 
     .intro {
-      font-size: 15px;
-      line-height: 1.55;
+      display: none;
     }
 
     .facts {
