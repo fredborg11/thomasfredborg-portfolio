@@ -87,6 +87,48 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       <span>↗</span>
     </a>
   </article>
+
+<script>
+  (() => {
+    const enhanceMobileCase = () => {
+      document.querySelectorAll(".mobile-body").forEach((mobileBody) => {
+        if (mobileBody.dataset.processed === "true") return;
+
+        const nodes = Array.from(mobileBody.children);
+        if (!nodes.length) return;
+
+        mobileBody.innerHTML = "";
+
+        let currentDetail = null;
+
+        for (const node of nodes) {
+          if (node.tagName === "H2") {
+            currentDetail = document.createElement("details");
+            currentDetail.className = "mobile-detail";
+
+            const summary = document.createElement("summary");
+            summary.textContent = node.textContent?.trim() || "Details";
+
+            const content = document.createElement("div");
+            content.className = "mobile-detail-content";
+
+            currentDetail.append(summary, content);
+            mobileBody.appendChild(currentDetail);
+          } else if (currentDetail) {
+            currentDetail.querySelector(".mobile-detail-content")?.appendChild(node);
+          }
+        }
+
+        mobileBody.dataset.processed = "true";
+        mobileBody.classList.add("is-enhanced");
+      });
+    };
+
+    enhanceMobileCase();
+    document.addEventListener("astro:page-load", enhanceMobileCase);
+  })();
+</script>
+
 </BaseLayout>
 
 <style>
