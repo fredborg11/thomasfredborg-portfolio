@@ -405,18 +405,21 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
   .about-content {
     display: grid;
-    grid-template-columns: minmax(250px, .34fr) minmax(0, .66fr);
-    gap: clamp(32px, 5vw, 80px);
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: clamp(36px, 5vw, 84px);
     align-items: start;
   }
 
   .about-profile {
     min-width: 0;
+    padding-top: 8px;
   }
 
   .about-portrait {
+    width: 178px;
+    height: 178px;
     margin: 0;
-    aspect-ratio: 4 / 5;
+    border-radius: 50%;
     background: var(--card);
     overflow: hidden;
   }
@@ -426,7 +429,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: 50% 38%;
+    object-position: 50% 35%;
   }
 
   .about-caption {
@@ -668,11 +671,16 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
     .about-content {
       grid-template-columns: 1fr;
-      gap: 34px;
+      gap: 30px;
+    }
+
+    .about-profile {
+      padding-top: 0;
     }
 
     .about-portrait {
-      aspect-ratio: 4 / 3;
+      width: 138px;
+      height: 138px;
     }
 
     .about-grid {
