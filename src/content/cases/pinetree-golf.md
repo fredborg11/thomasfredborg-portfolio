@@ -11,6 +11,15 @@ tags:
   - Product Design
   - Digital
 intro: A complete visual foundation for a new golf brand, spanning logo, visual identity, packaging, golf ball design and the original website direction.
+seoDescription: Brand identity, packaging and product design for Pinetree Golf, including logo, golf ball graphics, packaging and original website direction.
+imageAlts:
+  - Pinetree Golf branded golf glove on the course
+  - Pinetree Golf Distance golf ball packaging
+  - Pinetree Golf Pro Soft golf ball packaging
+  - Pinetree Golf TQS golf ball packaging
+  - Pinetree Golf TQX golf ball packaging
+  - Pinetree Golf premium golf balls in chartreuse and white
+  - Pinetree Golf original webshop direction on laptop and mobile
 cover: /media/1790943588393-gyldent-solnedgangslys-over-golfbanen.png
 gallery:
   - /media/1790943615453-golfhandske-med-pinetree-logo-pa-gr-sset.png
