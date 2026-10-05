@@ -439,11 +439,11 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       border-top: 1px solid var(--line);
     }
 
-    .mobile-detail {
+    :global(.mobile-detail) {
       border-bottom: 1px solid var(--line);
     }
 
-    .mobile-detail > summary {
+    :global(.mobile-detail > summary) {
       list-style: none;
       cursor: pointer;
       padding: 15px 0 16px;
@@ -455,11 +455,11 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       font-weight: 500;
     }
 
-    .mobile-detail > summary::-webkit-details-marker {
+    :global(.mobile-detail > summary::-webkit-details-marker) {
       display: none;
     }
 
-    .mobile-detail > summary::after {
+    :global(.mobile-detail > summary::after) {
       content: "+";
       font-size: 16px;
       line-height: 1;
@@ -467,18 +467,18 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       transition: transform .2s ease;
     }
 
-    .mobile-detail[open] > summary::after {
+    :global(.mobile-detail[open] > summary::after) {
       content: "−";
     }
 
-    .mobile-detail-content {
+    :global(.mobile-detail-content) {
       padding: 0 0 17px;
       font-size: 14px;
       line-height: 1.58;
       color: var(--muted);
     }
 
-    .mobile-detail-content p {
+    :global(.mobile-detail-content p) {
       margin: 0;
     }
 
@@ -491,7 +491,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       display: grid;
     }
 
-    .mobile-body .mobile-detail {
+    :global(.mobile-body .mobile-detail) {
       display: block;
     }
 
