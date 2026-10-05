@@ -11,6 +11,12 @@ tags:
   - Graphic Design
   - Print
 intro: A printed retail campaign designed to make alcohol-free alternatives more visible in-store and give customers a small nudge towards 0.0%.
+seoDescription: Retail campaign design for Pisiffik, covering in-store communication, POS, print materials and the visual development of an alcohol-free product campaign.
+imageAlts:
+  - Alcohol-free campaign signs in a Pisiffik supermarket
+  - Alcohol-free campaign presentation and retail display
+  - Alcohol-free campaign information boxes for in-store use
+  - Alcohol-free shelf display with blue campaign styling
 updatedAt: 2026-10-02T09:28:34Z
 cover: /media/1790931889221-pisiffik_alkoholfri-kampagne_pr-sentation-1.jpg
 gallery:
