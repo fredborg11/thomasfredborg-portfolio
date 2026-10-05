@@ -36,9 +36,10 @@ const frontmatter = entry.frontmatter;
 const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
 const isSimpleLife = frontmatter.slug === "simple-life-trope";
 const seoTitleMap = {
-  "pinetree-golf": "Pinetree Golf — Brand Identity | Thomas Fredborg",
-  "pisiffik-alkoholfri": "Alcohol-Free Campaign — Retail Design | Thomas Fredborg",
-  "pisiffik-loyalty-app": "Pisiffik Loyalty App — App Design | Thomas Fredborg",
+  "pinetree-golf": "Pinetree Golf — Brand Identity & Packaging | Thomas Fredborg",
+  "pisiffik-alkoholfri": "Pisiffik — Retail Campaign & Graphic Design | Thomas Fredborg",
+  "pisiffik-loyalty-app": "Pisiffik Loyalty App — UI & Visual Design | Thomas Fredborg",
+  "simple-life-trope": "Simple Life by Trope — Packaging Design | Thomas Fredborg",
   "simple-life-trope": "Simple Life by Trope — Packaging Design | Thomas Fredborg",
 };
 const seoTitle = seoTitleMap[frontmatter.slug] ?? `${frontmatter.title} | Thomas Fredborg`;
@@ -50,6 +51,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   title={seoTitle}
   description={frontmatter.seoDescription ?? frontmatter.intro ?? "Selected work by Thomas Fredborg."}
   image={frontmatter.cover ?? ""}
+  imageAlt={`${frontmatter.title} — Thomas Fredborg portfolio case`}
 >
   <article class="case">
     <a class="back" href={base}>← All work</a>
@@ -221,6 +223,15 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": `${Astro.url}#project`,
+        name: frontmatter.title,
+        description: frontmatter.seoDescription ?? frontmatter.intro ?? "Selected work by Thomas Fredborg.",
+        creator: { "@id": `${Astro.site?.toString() ?? "https://thomasfredborg.dk/"}#person` },
+        image: frontmatter.cover ? new URL(mediaUrl(frontmatter.cover), Astro.site).toString() : undefined,
+        keywords: frontmatter.tags?.join(", ")
+      },
       {
         "@type": "WebPage",
         "@id": `${Astro.url}#webpage`,
