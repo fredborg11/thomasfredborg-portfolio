@@ -13,14 +13,29 @@ tags:
   - Digital
 intro: A complete visual identity and editorial system for FLID, built around a compass-inspired logo and a design system made to work across print, digital and everyday communication.
 seoDescription: Brand identity, logo design and editorial design for FLID, including a compass-inspired logo, design manual, 56-page quarterly magazine and branded communications.
-imageAlts: []
-galleryLabels: []
-cover: ""
-gallery: []
+imageAlts:
+  - FLID compass logo over calm marina water
+  - FLID brand manual and logo guidelines on a marina dock
+  - Three FLID & FAKTA magazine covers on a marina dock
+  - FLID & FAKTA editorial spread about good harbor life
+  - FLID & FAKTA editorial spread about Kerteminde harbor development
+  - FLID branded stationery and apparel on a marina dock
+galleryLabels:
+  - Design manual
+  - Magazine covers
+  - Editorial design — Flid og Fakta
+  - Editorial design — Kerteminde i forvandling
+  - Applied identity
+cover: /media/1791208678134-flid-logo-over-et-roligt-hav.png
+gallery:
+  - /media/1791208684044-flid-brandmanual-ved-havnen.png
+  - /media/1791283750576-havnemagasiner-pa-solbeskinnet-marina-d-k.png
+  - /media/1791283765430-magasin-om-godt-havneliv-ved-marinaen.png
+  - /media/1791284567847-magasinopslag-ved-kerteminde-havn.png
+  - /media/1791284845237-flid-branding-ved-solskinshavnen.png
 video: ""
-updatedAt: 2026-10-06T10:20:00Z
+updatedAt: 2026-10-06T12:55:00Z
 ---
-
 ## The brief
 
 In 2020, Foreningen af Lystbådehavne i Danmark wanted a new visual direction that could better reflect the organisation and where it was heading.
