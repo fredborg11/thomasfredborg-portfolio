@@ -35,12 +35,13 @@ const { Content } = entry;
 const frontmatter = entry.frontmatter;
 const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
 const isSimpleLife = frontmatter.slug === "simple-life-trope";
+const isFlid = frontmatter.slug === "flid";
 const seoTitleMap = {
   "pinetree-golf": "Pinetree Golf — Brand Identity & Packaging | Thomas Fredborg",
   "pisiffik-alkoholfri": "Pisiffik — Retail Campaign & Graphic Design | Thomas Fredborg",
   "pisiffik-loyalty-app": "Pisiffik Loyalty App — UI & Visual Design | Thomas Fredborg",
   "simple-life-trope": "Simple Life by Trope — Packaging Design | Thomas Fredborg",
-  "simple-life-trope": "Simple Life by Trope — Packaging Design | Thomas Fredborg",
+  "flid": "FLID — Brand Identity & Editorial Design | Thomas Fredborg",
 };
 const seoTitle = seoTitleMap[frontmatter.slug] ?? `${frontmatter.title} | Thomas Fredborg`;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
@@ -174,7 +175,78 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           </section>
         )}
       </>
-    ) : (
+    ) : isFlid ? (
+      <>
+        <div class="body flid-body">
+          <Content />
+        </div>
+
+        {frontmatter.gallery?.length && (
+          <div class="flid-media">
+            <section class="media-section">
+              <div class="media-kicker">01 / Identity</div>
+              <div class="flid-gallery">
+                {frontmatter.gallery.slice(0, Math.min(2, frontmatter.gallery.length)).map((image, index) => (
+                  <figure class="flid-gallery-item">
+                    <img
+                      src={mediaUrl(image)}
+                      alt={frontmatter.imageAlts?.[index + 1] ?? ${frontmatter.title} — identity image ${index + 1}}
+                      loading={index > 0 ? "lazy" : "eager"}
+                      decoding="async"
+                    />
+                    {frontmatter.galleryLabels?.[index] && (
+                      <figcaption>{frontmatter.galleryLabels[index]}</figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </section>
+
+            {frontmatter.gallery.length > 2 && (
+              <section class="media-section">
+                <div class="media-kicker">02 / Editorial design</div>
+                <div class="flid-gallery">
+                  {frontmatter.gallery.slice(2, Math.min(4, frontmatter.gallery.length)).map((image, index) => (
+                    <figure class="flid-gallery-item">
+                      <img
+                        src={mediaUrl(image)}
+                        alt={frontmatter.imageAlts?.[index + 3] ?? ${frontmatter.title} — editorial image ${index + 1}}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {frontmatter.galleryLabels?.[index + 2] && (
+                        <figcaption>{frontmatter.galleryLabels[index + 2]}</figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {frontmatter.gallery.length > 4 && (
+              <section class="media-section">
+                <div class="media-kicker">03 / Applied identity</div>
+                <div class="flid-gallery">
+                  {frontmatter.gallery.slice(4).map((image, index) => (
+                    <figure class="flid-gallery-item">
+                      <img
+                        src={mediaUrl(image)}
+                        alt={frontmatter.imageAlts?.[index + 5] ?? ${frontmatter.title} — application image ${index + 1}}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {frontmatter.galleryLabels?.[index + 4] && (
+                        <figcaption>{frontmatter.galleryLabels[index + 4]}</figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        )}
+      </>
+
       <>
         {frontmatter.gallery?.length && (
           <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
@@ -406,6 +478,49 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .packaging-body {
     margin-top: 11vh;
     margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .flid-body {
+    margin-top: 11vh;
+    margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .flid-media {
+    display: grid;
+    gap: clamp(70px, 10vw, 150px);
+  }
+
+  .flid-gallery {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .flid-gallery-item {
+    min-width: 0;
+  }
+
+  .flid-gallery-item img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    background: var(--card);
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .flid-gallery-item:hover img {
+    transform: scale(1.012);
+  }
+
+  .flid-gallery-item figcaption {
+    margin-top: 12px;
+    font-size: 11px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
   }
 
   .packaging-body :global(h2) {
@@ -818,6 +933,15 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
     .loyalty-media {
       gap: 58px;
+    }
+
+    .flid-media {
+      gap: 58px;
+    }
+
+    .flid-gallery {
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
     .media-section {
