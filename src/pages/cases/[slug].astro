@@ -190,7 +190,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                   <figure class="flid-gallery-item">
                     <img
                       src={mediaUrl(image)}
-                      alt={frontmatter.imageAlts?.[index + 1] ?? ${frontmatter.title} — identity image ${index + 1}}
+                      alt={frontmatter.imageAlts?.[index + 1] ?? `${frontmatter.title} — identity image ${index + 1}`}
                       loading={index > 0 ? "lazy" : "eager"}
                       decoding="async"
                     />
@@ -210,7 +210,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                     <figure class="flid-gallery-item">
                       <img
                         src={mediaUrl(image)}
-                        alt={frontmatter.imageAlts?.[index + 3] ?? ${frontmatter.title} — editorial image ${index + 1}}
+                        alt={frontmatter.imageAlts?.[index + 3] ?? `${frontmatter.title} — editorial image ${index + 1}`}
                         loading="lazy"
                         decoding="async"
                       />
@@ -231,7 +231,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                     <figure class="flid-gallery-item">
                       <img
                         src={mediaUrl(image)}
-                        alt={frontmatter.imageAlts?.[index + 5] ?? ${frontmatter.title} — application image ${index + 1}}
+                        alt={frontmatter.imageAlts?.[index + 5] ?? `${frontmatter.title} — application image ${index + 1}`}
                         loading="lazy"
                         decoding="async"
                       />
@@ -246,8 +246,9 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           </div>
         )}
       </>
-
+    ) : (
       <>
+
         {frontmatter.gallery?.length && (
           <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
             {frontmatter.gallery.map((image, index) => (
