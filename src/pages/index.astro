@@ -3,13 +3,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const modules = import.meta.glob("../content/cases/*.md", { eager: true });
 const allCases = Object.values(modules).map((mod) => mod);
-const cases = allCases
-  .sort((a, b) => {
-    const aTime = Date.parse(a.frontmatter.updatedAt ?? "") || 0;
-    const bTime = Date.parse(b.frontmatter.updatedAt ?? "") || 0;
-    if (aTime !== bTime) return bTime - aTime;
-    return Number(b.frontmatter.year ?? 0) - Number(a.frontmatter.year ?? 0);
-  });
+const caseOrder = [
+  "pisiffik-loyalty-app",
+  "flid",
+  "simple-life-trope",
+  "pisiffik-alkoholfri",
+  "pisiffik-nonfood",
+  "fair-fitness",
+  "pinetree-golf",
+];
+
+const cases = allCases.sort((a, b) => {
+  const aSlug = a.file.split("/").pop()?.replace(/\.md$/, "");
+  const bSlug = b.file.split("/").pop()?.replace(/\.md$/, "");
+  const aOrder = caseOrder.indexOf(aSlug);
+  const bOrder = caseOrder.indexOf(bSlug);
+
+  if (aOrder !== -1 || bOrder !== -1) {
+    if (aOrder === -1) return 1;
+    if (bOrder === -1) return -1;
+    return aOrder - bOrder;
+  }
+
+  return Number(b.frontmatter.year ?? 0) - Number(a.frontmatter.year ?? 0);
+});
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : path;
