@@ -37,6 +37,7 @@ const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
 const isSimpleLife = frontmatter.slug === "simple-life-trope";
 const isPisiffikNonFood = frontmatter.slug === "pisiffik-nonfood";
 const isFlid = frontmatter.slug === "flid";
+const isFairFitness = frontmatter.slug === "fair-fitness";
 const seoTitleMap = {
   "pinetree-golf": "Pinetree Golf — Brand Identity & Packaging | Thomas Fredborg",
   "pisiffik-alkoholfri": "Pisiffik — Retail Campaign & Graphic Design | Thomas Fredborg",
@@ -44,6 +45,7 @@ const seoTitleMap = {
   "simple-life-trope": "Simple Life by Trope — Packaging Design | Thomas Fredborg",
   "flid": "FLID — Brand Identity & Editorial Design | Thomas Fredborg",
   "pisiffik-nonfood": "Pisiffik Non-Food — Retail Design & Production | Thomas Fredborg",
+  "fair-fitness": "Fair Fitness — Brand Communication & Environmental Design | Thomas Fredborg",
 };
 const seoTitle = seoTitleMap[frontmatter.slug] ?? `${frontmatter.title} | Thomas Fredborg`;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
@@ -245,6 +247,33 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                 </div>
               </section>
             )}
+          </div>
+        )}
+      </>
+    ) : isFairFitness ? (
+      <>
+        <div class="body fair-fitness-body">
+          <Content />
+        </div>
+
+        {frontmatter.gallery?.length && (
+          <div class="fair-fitness-media">
+            {frontmatter.gallery.map((image, index) => (
+              <section class="media-section">
+                <div class="media-kicker">{["01 / Environmental branding", "02 / Signage & wayfinding", "03 / Large-format wall art", "04 / Centre identity"][index] ?? `0${index + 1} / Application`}</div>
+                <figure class="fair-fitness-gallery-item">
+                  <img
+                    src={mediaUrl(image)}
+                    alt={frontmatter.imageAlts?.[index + 1] ?? `${frontmatter.title} — project image ${index + 1}`}
+                    loading={index > 0 ? "lazy" : "eager"}
+                    decoding="async"
+                  />
+                  {frontmatter.galleryLabels?.[index] && (
+                    <figcaption>{frontmatter.galleryLabels[index]}</figcaption>
+                  )}
+                </figure>
+              </section>
+            ))}
           </div>
         )}
       </>
@@ -560,6 +589,44 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .pisiffik-nonfood-body {
     margin-top: 11vh;
     margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .fair-fitness-body {
+    margin-top: 11vh;
+    margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .fair-fitness-media {
+    display: grid;
+    gap: clamp(70px, 10vw, 150px);
+  }
+
+  .fair-fitness-gallery-item {
+    min-width: 0;
+    margin: 0;
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .fair-fitness-gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .fair-fitness-gallery-item:hover img {
+    transform: scale(1.004);
+  }
+
+  .fair-fitness-gallery-item figcaption {
+    margin-top: 12px;
+    font-size: 11px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
   }
 
   .pisiffik-nonfood-media {
@@ -1050,6 +1117,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     }
 
     .pisiffik-nonfood-media {
+      gap: 58px;
+    }
+
+    .fair-fitness-media {
       gap: 58px;
     }
 
