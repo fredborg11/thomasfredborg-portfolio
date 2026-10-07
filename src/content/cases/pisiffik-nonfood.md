@@ -2,8 +2,8 @@
 title: Pisiffik Non-Food
 slug: pisiffik-nonfood
 client: Pisiffik
-year: 2026
-category: Retail / Print
+year: 2013
+category: Retail / Editorial
 role: Retail Design / Graphic Production
 tags:
   - Retail
@@ -11,7 +11,21 @@ tags:
   - Editorial
   - Production
   - Multi-brand
-intro: A weekly non-food retail publication bringing multiple brands, product categories and promotional messages together in a flexible, production-ready design system.
+intro: A weekly non-food retail publication bringing multiple brands, product categories and promotional messages together in a flexible production system.
+seoDescription: Retail design and production for Pisiffik's weekly non-food newspaper, covering multiple brands, seasonal campaigns, product layouts and a high-volume design system.
+imageAlts:
+  - Pisiffik non-food retail pages arranged on a clean studio table
+  - Pisiffik non-food page combining Pisattat, Torrak Fashion, JYSK and Elgiganten
+  - Pisiffik non-food editorial spread with glassware and tableware promotion
+  - Pisiffik non-food Elgiganten product spread with electronics and appliances
+  - Pisiffik non-food seasonal Pisattat spread with teal cookware and spring styling
+  - Pisiffik non-food ILVA and Torrak Fashion retail pages shown as print proofs
+galleryLabels:
+  - Multi-brand retail
+  - Art direction
+  - Product density
+  - Seasonal retail
+  - Brand adaptation
 cover: /media/1791360599281-piffik-kataloger-pa-stilrent-bord.png
 gallery:
   - /media/1791360611350-piffissiks-app-ilinnut-neqeroorutit-pitsaasut.png
@@ -20,11 +34,12 @@ gallery:
   - /media/1791361097526-turkis-boligkatalog-med-fora-rsdetaljer.png
   - /media/1791361326605-farverige-tilbudsaviser-med-m-bler-og-mode.png
 video: ""
-updatedAt: 2026-10-07T08:22:46.825Z
+updatedAt: 2026-10-07T10:30:00Z
 ---
+
 ## The assignment
 
-I have worked with Pisiffik's non-food communication for almost 13 years, and it still makes up the largest part of my day-to-day design work.
+I have worked with Pisiffik's non-food communication since 2013, and it still makes up the largest part of my day-to-day design work.
 
 The non-food section is published weekly as part of Pisiffik's retail newspaper. A typical edition is around 10 pages, with larger editions produced around major retail moments such as Christmas, Easter and Pisiffik's birthday.
 
@@ -32,7 +47,7 @@ The publication brings together multiple concepts and brands, including Pisattat
 
 ## My role
 
-I am responsible for the first and most design-intensive part of the production process: developing the page layouts and establishing the visual expression of each section before the material moves into proofreading and final production.
+I am responsible for the first design stage of the production process: developing the page layouts and establishing the visual expression of each section before the material moves into proofreading and final production.
 
 My work includes:
 
@@ -77,9 +92,9 @@ These seasonal versions require the same production discipline as the standard p
 
 The production workflow is planned well ahead of publication.
 
-From receiving the material to sending the pages to proofreading, the normal production window is around two weeks. Because printed newspapers need to be shipped to Greenland by sea around three months before publication, the overall process can be planned significantly earlier than a comparable retail publication with local distribution.
+From receiving the material to sending the pages to proofreading, the normal production window is around two weeks. Because the printed material needs to be shipped to Greenland by sea around three months before publication, the overall process can be planned well in advance.
 
-That long lead time makes structure and planning essential. Pages and concepts are often developed at different times, late changes can affect the visual direction, and the full picture only comes together once the individual sections are assembled.
+That long lead time makes structure and planning essential, and gives the team room to coordinate a publication that is assembled from several concept-specific sections. Pages and concepts are often developed at different times, late changes can affect the visual direction, and the full picture only comes together once the individual sections are assembled.
 
 ## Keeping control of complexity
 
