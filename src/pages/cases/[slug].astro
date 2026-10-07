@@ -4,15 +4,31 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 export function getStaticPaths() {
   const entries = import.meta.glob("../../content/cases/*.md", { eager: true });
 
+  const caseOrder = [
+    "pisiffik-loyalty-app",
+    "flid",
+    "simple-life-trope",
+    "pisiffik-alkoholfri",
+    "pisiffik-nonfood",
+    "fair-fitness",
+    "pinetree-golf",
+  ];
+
   const cases = Object.entries(entries)
     .map(([file, entry]) => ({
       slug: file.split("/").pop()?.replace(/\.md$/, ""),
       entry,
     }))
     .sort((a, b) => {
-      const aTime = Date.parse(a.entry.frontmatter.updatedAt ?? "") || 0;
-      const bTime = Date.parse(b.entry.frontmatter.updatedAt ?? "") || 0;
-      if (aTime !== bTime) return bTime - aTime;
+      const aOrder = caseOrder.indexOf(a.slug);
+      const bOrder = caseOrder.indexOf(b.slug);
+
+      if (aOrder !== -1 || bOrder !== -1) {
+        if (aOrder === -1) return 1;
+        if (bOrder === -1) return -1;
+        return aOrder - bOrder;
+      }
+
       return Number(b.entry.frontmatter.year ?? 0) - Number(a.entry.frontmatter.year ?? 0);
     });
 
