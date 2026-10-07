@@ -15,8 +15,9 @@ intro: A weekly non-food retail publication bringing multiple brands, product ca
 cover: /media/1791360599281-piffik-kataloger-pa-stilrent-bord.png
 gallery:
   - /media/1791360611350-piffissiks-app-ilinnut-neqeroorutit-pitsaasut.png
+  - /media/1791360642859-magasinopslag-med-glas-og-bordd-kning.png
 video: ""
-updatedAt: 2026-10-07T08:10:20.002Z
+updatedAt: 2026-10-07T08:12:18.720Z
 ---
 ## The assignment
 
