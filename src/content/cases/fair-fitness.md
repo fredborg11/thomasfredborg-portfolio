@@ -13,10 +13,14 @@ tags:
   - Production
   - Brand Consistency
 intro: A seven-year design partnership focused on creating a consistent visual experience across Fair Fitness's 18 centres on Zealand.
-cover: /media/1791364468004-moderne-fair-fitness-receptionhall.png
-gallery: []
+cover: /media/1791366207607-modern-fair-fitness-facade-i-skumringen.png
+gallery:
+  - /media/1791365504990-moderne-fitnesscenter-med-l-bemural.png
+  - /media/1791365514799-moderne-omkl-dningsrum-med-gr-nne-ikoner.png
+  - /media/1791365897929-cinematisk-styrketr-ningscenter-med-v-gmalerier.png
+  - /media/1791366222587-moderne-fair-fitness-receptionhall.png
 video: ""
-updatedAt: 2026-10-07T09:15:05.831Z
+updatedAt: 2026-10-07T09:43:50.273Z
 ---
 ## The brief
 
