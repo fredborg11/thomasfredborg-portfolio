@@ -16,8 +16,11 @@ cover: /media/1791360599281-piffik-kataloger-pa-stilrent-bord.png
 gallery:
   - /media/1791360611350-piffissiks-app-ilinnut-neqeroorutit-pitsaasut.png
   - /media/1791360642859-magasinopslag-med-glas-og-bordd-kning.png
+  - /media/1791360902188-farverig-elektroniktilbudsavis-pa-skrivebord.png
+  - /media/1791361097526-turkis-boligkatalog-med-fora-rsdetaljer.png
+  - /media/1791361326605-farverige-tilbudsaviser-med-m-bler-og-mode.png
 video: ""
-updatedAt: 2026-10-07T08:12:18.720Z
+updatedAt: 2026-10-07T08:22:46.825Z
 ---
 ## The assignment
 
