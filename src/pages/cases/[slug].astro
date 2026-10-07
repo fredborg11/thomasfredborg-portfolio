@@ -35,6 +35,7 @@ const { Content } = entry;
 const frontmatter = entry.frontmatter;
 const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
 const isSimpleLife = frontmatter.slug === "simple-life-trope";
+const isPisiffikNonFood = frontmatter.slug === "pisiffik-nonfood";
 const isFlid = frontmatter.slug === "flid";
 const seoTitleMap = {
   "pinetree-golf": "Pinetree Golf — Brand Identity & Packaging | Thomas Fredborg",
@@ -42,6 +43,7 @@ const seoTitleMap = {
   "pisiffik-loyalty-app": "Pisiffik Loyalty App — UI & Visual Design | Thomas Fredborg",
   "simple-life-trope": "Simple Life by Trope — Packaging Design | Thomas Fredborg",
   "flid": "FLID — Brand Identity & Editorial Design | Thomas Fredborg",
+  "pisiffik-nonfood": "Pisiffik Non-Food — Retail Design & Production | Thomas Fredborg",
 };
 const seoTitle = seoTitleMap[frontmatter.slug] ?? `${frontmatter.title} | Thomas Fredborg`;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
@@ -246,10 +248,77 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           </div>
         )}
       </>
-    ) : (
+    ) : isPisiffikNonFood ? (
       <>
+        <div class="body pisiffik-nonfood-body">
+          <Content />
+        </div>
 
         {frontmatter.gallery?.length && (
+          <div class="pisiffik-nonfood-media">
+            <section class="media-section">
+              <div class="media-kicker">01 / Multi-brand retail</div>
+              <figure class="pisiffik-nonfood-gallery-item">
+                <img
+                  src={mediaUrl(frontmatter.gallery[0])}
+                  alt={frontmatter.imageAlts?.[1] ?? "Pisiffik non-food multi-brand retail page"}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </section>
+
+            <section class="media-section">
+              <div class="media-kicker">02 / Art direction</div>
+              <figure class="pisiffik-nonfood-gallery-item">
+                <img
+                  src={mediaUrl(frontmatter.gallery[1])}
+                  alt={frontmatter.imageAlts?.[2] ?? "Pisiffik non-food art-directed retail spread"}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </section>
+
+            <section class="media-section">
+              <div class="media-kicker">03 / Product density</div>
+              <figure class="pisiffik-nonfood-gallery-item">
+                <img
+                  src={mediaUrl(frontmatter.gallery[2])}
+                  alt={frontmatter.imageAlts?.[3] ?? "Pisiffik non-food product-dense electronics spread"}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </section>
+
+            <section class="media-section">
+              <div class="media-kicker">04 / Seasonal retail</div>
+              <figure class="pisiffik-nonfood-gallery-item">
+                <img
+                  src={mediaUrl(frontmatter.gallery[3])}
+                  alt={frontmatter.imageAlts?.[4] ?? "Pisattat seasonal retail spread"}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </section>
+
+            <section class="media-section">
+              <div class="media-kicker">05 / Brand adaptation</div>
+              <figure class="pisiffik-nonfood-gallery-item">
+                <img
+                  src={mediaUrl(frontmatter.gallery[4])}
+                  alt={frontmatter.imageAlts?.[5] ?? "ILVA and Torrak Fashion retail pages"}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </section>
+          </div>
+        )}
+      </>
+    ) : (ngth && (
           <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
             {frontmatter.gallery.map((image, index) => (
               <figure class={`gallery-item gallery-item-${index}`}>
@@ -484,6 +553,44 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .flid-body {
     margin-top: 11vh;
     margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .pisiffik-nonfood-body {
+    margin-top: 11vh;
+    margin-bottom: clamp(80px, 11vw, 150px);
+  }
+
+  .pisiffik-nonfood-media {
+    display: grid;
+    gap: clamp(70px, 10vw, 150px);
+  }
+
+  .pisiffik-nonfood-gallery-item {
+    min-width: 0;
+    margin: 0;
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .pisiffik-nonfood-gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .pisiffik-nonfood-gallery-item:hover img {
+    transform: scale(1.004);
+  }
+
+  .pisiffik-nonfood-gallery-item figcaption {
+    margin-top: 12px;
+    font-size: 11px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
   }
 
   .flid-media {
@@ -937,6 +1044,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     }
 
     .flid-media {
+      gap: 58px;
+    }
+
+    .pisiffik-nonfood-media {
       gap: 58px;
     }
 
