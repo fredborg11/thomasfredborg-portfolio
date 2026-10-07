@@ -13,15 +13,11 @@ tags:
   - Production
   - Brand Consistency
 intro: A seven-year design partnership focused on creating a consistent visual experience across Fair Fitness's 18 centres on Zealand.
-seoDescription: Ongoing graphic design and environmental branding for Fair Fitness, helping create a consistent visual experience across 18 fitness centres in Zealand since 2019.
-imageAlts: []
-galleryLabels: []
 cover: ""
 gallery: []
 video: ""
-updatedAt: 2026-10-07T10:45:00Z
+updatedAt: 2026-10-07T09:14:17.306Z
 ---
-
 ## The brief
 
 In 2019, Fair Fitness came to the company I work for with a clear challenge: their centres had accumulated many different types of graphic material without a consistent visual line.
