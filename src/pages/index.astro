@@ -161,7 +161,8 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           <p>
             I'm a graphic designer and art director with 13+ years of experience
             working across brand identity, retail, packaging, editorial, campaigns,
-            print, digital design and UI.
+            print, digital design and UI. I enjoy work where creative thinking and
+            practical execution need to work together.
           </p>
           <p>
             My strength is turning complex briefs and large amounts of information
@@ -190,6 +191,11 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
             <span>Copenhagen · Zealand · Denmark</span>
           </div>
         </div>
+
+        <a class="cv-download" href="/cv.pdf" download>
+          <span>Download CV</span>
+          <span>↗</span>
+        </a>
       </div>
     </div>
   </section>
@@ -509,6 +515,26 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
   .capabilities > div:last-child {
     border-bottom: 0;
+  }
+
+  .cv-download {
+    margin-top: 26px;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    padding: 13px 16px;
+    border: 1px solid var(--fg);
+    font-size: 11px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    transition: background .2s ease, color .2s ease, opacity .2s ease;
+  }
+
+  .cv-download:hover {
+    background: var(--fg);
+    color: var(--bg);
   }
 
   .capability-label {
