@@ -318,7 +318,9 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           </div>
         )}
       </>
-    ) : (ngth && (
+    ) : (
+      <>
+        {frontmatter.gallery?.length && (
           <div class:list={["gallery", { "gallery-seven": frontmatter.gallery?.length === 7 }]} >
             {frontmatter.gallery.map((image, index) => (
               <figure class={`gallery-item gallery-item-${index}`}>
