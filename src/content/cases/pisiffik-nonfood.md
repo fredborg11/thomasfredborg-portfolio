@@ -12,15 +12,12 @@ tags:
   - Production
   - Multi-brand
 intro: A weekly non-food retail publication bringing multiple brands, product categories and promotional messages together in a flexible, production-ready design system.
-seoDescription: Retail design and production for Pisiffik's weekly non-food newspaper, covering multiple brands, seasonal campaigns, product layouts and a high-volume design system.
-imageAlts: []
-galleryLabels: []
-cover: ""
-gallery: []
+cover: /media/1791360599281-piffik-kataloger-pa-stilrent-bord.png
+gallery:
+  - /media/1791360611350-piffissiks-app-ilinnut-neqeroorutit-pitsaasut.png
 video: ""
-updatedAt: 2026-10-07T09:20:00Z
+updatedAt: 2026-10-07T08:10:20.002Z
 ---
-
 ## The assignment
 
 I have worked with Pisiffik's non-food communication for almost 13 years, and it still makes up the largest part of my day-to-day design work.
