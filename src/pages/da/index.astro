@@ -69,7 +69,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   <section id="work" class="work">
     <div class="section-head">
       <h2>Udvalgte cases</h2>
-      <span>{cases.length.toString().padStart(2, "0")} projects</span>
+      <span>{cases.length.toString().padStart(2, "0")} projekter</span>
     </div>
 
     <div class="grid">
@@ -78,18 +78,18 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
         const slug = item.file.split("/").pop()?.replace(/\.md$/, "");
         const featured = index === 0;
         return (
-          <a class:list={["project", { featured }]} href={`${base}cases/${slug}/`}>
+          <a class:list={["project", { featured }]} href={`${base}da/cases/${slug}/`}>
             <div class="project-media">
               {cover ? (
                 <img
                   src={mediaUrl(cover)}
-                  alt={`${item.frontmatter.title} — ${item.frontmatter.client ?? "selected work"}`}
+                  alt={`${item.frontmatter.title} — ${item.frontmatter.client ?? "udvalgt arbejde"}`}
                   loading={index > 1 ? "lazy" : "eager"}
                   decoding="async"
                 />
               ) : (
                 <div class="project-placeholder">
-                  <span>{item.frontmatter.category ?? "Graphic Design"}</span>
+                  <span>{item.frontmatter.category ?? "Grafisk design"}</span>
                 </div>
               )}
             </div>
@@ -134,7 +134,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           "@type": "ListItem",
           position: index + 1,
           name: item.frontmatter.title,
-          url: new URL(`${base}cases/${item.file.split("/").pop()?.replace(/\\.md$/, "")}/`, Astro.site).toString()
+          url: new URL(`${base}da/cases/${item.file.split("/").pop()?.replace(/\\.md$/, "")}/`, Astro.site).toString()
         }))
       }
     ]
