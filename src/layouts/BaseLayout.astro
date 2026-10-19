@@ -3,15 +3,26 @@ const {
   title = "Thomas Fredborg — Graphic Designer / Art Director",
   description = "Portfolio of Thomas Fredborg — graphic design, branding, retail, digital, packaging and print.",
   image = "",
-  imageAlt = "Thomas Fredborg — Graphic Designer / Art Director"
+  imageAlt = "Thomas Fredborg — Graphic Designer / Art Director",
+  lang = "en"
 } = Astro.props;
 const canonical = Astro.url;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const siteUrl = Astro.site?.toString() ?? "https://thomasfredborg.dk/";
-const isHome = Astro.url.pathname === new URL(base, Astro.url).pathname;
+const language = lang === "da" ? "da" : "en";
+const isDanish = language === "da";
+const basePath = base === "/" ? "" : base.replace(/\/$/, "");
+const localPath = isDanish
+  ? Astro.url.pathname.replace(`${basePath}/da`, "") || "/"
+  : Astro.url.pathname.replace(basePath, "") || "/";
+const englishPath = `${basePath}${localPath === "/" ? "/" : localPath}`;
+const danishPath = `${basePath}/da${localPath === "/" ? "/" : localPath}`;
+const languageHref = isDanish ? englishPath : danishPath;
+const homePath = isDanish ? `${base}da/` : base;
+const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,9 +31,11 @@ const isHome = Astro.url.pathname === new URL(base, Astro.url).pathname;
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#f5f4f0" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL(englishPath, siteUrl)} />
+    <link rel="alternate" hreflang="da" href={new URL(danishPath, siteUrl)} />
     <link rel="sitemap" href={new URL("sitemap-index.xml", siteUrl)} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_DK" />
+    <meta property="og:locale" content={isDanish ? "da_DK" : "en_DK"} />
     <meta property="og:site_name" content="Thomas Fredborg" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -78,10 +91,11 @@ const isHome = Astro.url.pathname === new URL(base, Astro.url).pathname;
       </a>
 
       <nav aria-label="Primary">
-        <a href={isHome ? "#work" : `${base}#work`}>Work</a>
-        <a href={isHome ? "#about" : `${base}#about`}>About</a>
-        <a href={isHome ? "#contact" : `${base}#contact`}>Contact</a>
+        <a href={isHome ? "#work" : `${homePath}#work`}>{isDanish ? "Cases" : "Work"}</a>
+        <a href={isHome ? "#about" : `${homePath}#about`}>{isDanish ? "Om mig" : "About"}</a>
+        <a href={isHome ? "#contact" : `${homePath}#contact`}>{isDanish ? "Kontakt" : "Contact"}</a>
         <a href={`${base}cv.pdf`} download>CV</a>
+        <a class="language-switch" href={languageHref} aria-label={isDanish ? "Switch to English" : "Skift til dansk"}>{isDanish ? "EN" : "DA"}</a>
       </nav>
     </header>
 
@@ -92,14 +106,14 @@ const isHome = Astro.url.pathname === new URL(base, Astro.url).pathname;
     <footer class="site-footer">
       <div>
         <span class="footer-label">Thomas Fredborg</span>
-        <span class="footer-muted">Graphic Designer / Art Director</span>
+        <span class="footer-muted">{isDanish ? "Grafisk Designer / Art Director" : "Graphic Designer / Art Director"}</span>
       </div>
       <div class="footer-right">
         <a href="mailto:fredborg11@gmail.com">fredborg11@gmail.com</a>
         <a href="https://www.linkedin.com/in/tfn/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       </div>
       <div class="footer-legal">
-        <p>© 2026 Thomas Fredborg. Unless otherwise stated, the work shown here was designed by Thomas Fredborg. Project work may be subject to client, employer, and third-party rights. Please do not reproduce or reuse any work without permission from the relevant rights holder.</p>
+        <p>{isDanish ? "© 2026 Thomas Fredborg. Medmindre andet er angivet, er arbejdet vist her designet af Thomas Fredborg. Projektarbejde kan være underlagt rettigheder hos kunder, arbejdsgivere og tredjeparter. Reproducer eller genanvend ikke arbejde uden tilladelse fra den relevante rettighedshaver." : "© 2026 Thomas Fredborg. Unless otherwise stated, the work shown here was designed by Thomas Fredborg. Project work may be subject to client, employer, and third-party rights. Please do not reproduce or reuse any work without permission from the relevant rights holder."}</p>
       </div>
     </footer>
   </body>
@@ -177,6 +191,13 @@ const isHome = Astro.url.pathname === new URL(base, Astro.url).pathname;
 
   nav a:hover {
     color: var(--fg);
+  }
+
+  nav .language-switch {
+    padding-left: 2px;
+    color: var(--fg);
+    font-weight: 600;
+    letter-spacing: .06em;
   }
 
   .site-footer {
