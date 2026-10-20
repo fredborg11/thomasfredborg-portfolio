@@ -73,6 +73,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   title={seoTitle}
   description={frontmatter.seoDescription ?? frontmatter.intro ?? "Udvalgte cases af Thomas Fredborg."}
   image={frontmatter.cover ?? ""}
+  imageAlt={frontmatter.imageAlts?.[0] ?? `${frontmatter.title} — case image`}
   imageAlt={`${frontmatter.title} — Thomas Fredborg portfolio case`}
 >
   <article class="case">

@@ -37,6 +37,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     <link rel="sitemap" href={new URL("sitemap-index.xml", siteUrl)} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={isDanish ? "da_DK" : "en_DK"} />
+    <meta property="og:locale:alternate" content={isDanish ? "en_DK" : "da_DK"} />
     <meta property="og:site_name" content="Thomas Fredborg" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
