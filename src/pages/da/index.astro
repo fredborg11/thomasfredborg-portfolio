@@ -747,7 +747,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     .contact {
       grid-template-columns: 1fr;
       gap: 26px;
-      margin-top: 16vh;
+      margin-top: var(--space-section);
     }
   }
 
@@ -778,7 +778,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     }
 
     .experience-strip {
-      margin-top: 12vh;
+      margin-top: var(--space-section);
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -807,8 +807,8 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
 
     .hero {
-      margin-top: 7vh;
-      margin-bottom: 11vh;
+      margin-top: var(--space-content);
+      margin-bottom: var(--space-section);
     }
 
     .eyebrow {

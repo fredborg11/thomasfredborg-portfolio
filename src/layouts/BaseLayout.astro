@@ -280,6 +280,12 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
   }
 
   @media (max-width: 680px) {
+    :root {
+      --space-section: clamp(80px, 13vh, 130px);
+      --space-major: clamp(104px, 17vh, 170px);
+      --space-content: clamp(56px, 9vh, 96px);
+    }
+
     .site-header,
     .site-footer {
       width: min(calc(100% - 28px), var(--max));
