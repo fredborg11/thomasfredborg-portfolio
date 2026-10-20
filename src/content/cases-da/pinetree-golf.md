@@ -4,7 +4,7 @@ slug: pinetree-golf
 client: Pinetree Golf
 year: 2021
 category: Visuel identitet
-role: Visuel identitet / Grafisk design
+role: Visuel identitet / Emballage
 tags:
   - Visuel identitet
   - Emballage
