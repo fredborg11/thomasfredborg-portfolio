@@ -11,6 +11,9 @@ tags:
   - Product Design
   - Digital
 intro: A complete visual foundation for a new golf brand, spanning logo, visual identity, packaging, golf ball design and the original website direction.
+challenge: Create a clear and recognisable foundation for a new golf brand that could work consistently across products, packaging and digital touchpoints.
+contribution: I created the logo and visual identity and translated it into golf ball graphics, packaging variants and the original website direction.
+result: A unified visual foundation was established across the brand's physical products, packaging and original digital direction.
 seoDescription: Brand identity, packaging and product design for Pinetree Golf, including logo, golf ball graphics, packaging and original website direction.
 imageAlts:
   - Pinetree Golf branded golf glove on the course
