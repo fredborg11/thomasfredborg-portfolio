@@ -94,6 +94,14 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       {frontmatter.tags?.length && <div><span>Fokus</span><strong>{frontmatter.tags.join(" · ")}</strong></div>}
     </div>
 
+    {frontmatter.challenge && frontmatter.contribution && frontmatter.result && (
+      <section class="project-summary" aria-label="Projektopsummering">
+        <div><span>Udfordring</span><p>{frontmatter.challenge}</p></div>
+        <div><span>Mit bidrag</span><p>{frontmatter.contribution}</p></div>
+        <div><span>Resultat</span><p>{frontmatter.result}</p></div>
+      </section>
+    )}
+
     <section class="mobile-details" aria-label="Case information">
       {frontmatter.intro && (
         <details class="mobile-detail">
@@ -128,7 +136,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                 <figure class={`gallery-item gallery-item-${index}`}>
                   <img
                     src={mediaUrl(image)}
-                    alt={frontmatter.imageAlts?.[index] ?? `${frontmatter.title} — project image ${index + 1}`}
+                    alt={frontmatter.imageAlts?.[index + 1] ?? `${frontmatter.title} — project image ${index + 1}`}
                     loading="lazy"
                     decoding="async"
                   />
@@ -539,6 +547,43 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     max-width: 470px;
     margin: 0 0 7px;
     font-size: 17px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .project-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+  }
+
+  .project-summary > div {
+    padding: 16px 20px 20px 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .project-summary > div + div {
+    padding-left: 20px;
+  }
+
+  .project-summary > div:last-child {
+    border-right: 0;
+  }
+
+  .project-summary span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+
+  .project-summary p {
+    margin: 0;
+    max-width: 430px;
+    font-size: 13px;
     line-height: 1.5;
     color: var(--muted);
   }
@@ -992,6 +1037,12 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   }
 
   @media (max-width: 680px) {
+    .project-summary { grid-template-columns: 1fr; margin-bottom: 18px; }
+    .project-summary > div,
+    .project-summary > div + div { padding: 13px 0 15px; border-right: 0; border-bottom: 1px solid var(--line); }
+    .project-summary > div:last-child { border-bottom: 0; }
+    .project-summary p { font-size: 13px; }
+
     .case {
       margin-top: 24px;
     }
