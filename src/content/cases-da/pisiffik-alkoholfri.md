@@ -11,6 +11,9 @@ tags:
   - Grafisk design
   - Print
 intro: En trykt retailkampagne designet til at gøre alkoholfri alternativer mere synlige i butikkerne og give kunderne et lille skub i retning af 0,0 %.
+challenge: Gøre alkoholfri alternativer mere synlige og lettere at forstå i et travlt supermarked.
+contribution: Jeg omsatte kundens kampagneretning til et sammenhængende retailsystem og håndterede layout, artwork, print og levering.
+result: Kampagnen blev rullet ud i alle syv Pisiffik-butikker; effekten forventes evalueret i 2027.
 seoDescription: Retailkampagnedesign for Pisiffik med butikskommunikation, POS-materialer, print og visuel udvikling af en kampagne for alkoholfri produkter.
 imageAlts:
   - Alkoholfri kampagneskilte i et Pisiffik-supermarked
