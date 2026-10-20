@@ -743,7 +743,8 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     }
   }
 
-  @media (max-width: 680px) {\n    .value-proposition,
+  @media (max-width: 680px) {
+    .value-proposition,
     .experience-strip {
       width: min(calc(100% - 28px), var(--max));
     }
