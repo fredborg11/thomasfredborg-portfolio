@@ -135,7 +135,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     margin-bottom: var(--space-major);
   }
 
-  .profile { min-width: 0; }
+  .profile {
+    min-width: 0;
+    padding-left: clamp(12px, 2vw, 28px);
+  }
 
   .portrait {
     width: 190px;
@@ -324,6 +327,10 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     .about-main {
       grid-template-columns: 1fr;
       gap: 36px;
+    }
+
+    .profile {
+      padding-left: 14px;
     }
 
     .portrait {
