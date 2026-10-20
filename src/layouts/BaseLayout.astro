@@ -131,6 +131,9 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     --line: #d9d7d0;
     --card: #e9e7e0;
     --max: 1480px;
+    --space-section: clamp(110px, 16vh, 220px);
+    --space-major: clamp(150px, 21vh, 300px);
+    --space-content: clamp(80px, 11vh, 160px);
   }
 
   * { box-sizing: border-box; }
