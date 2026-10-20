@@ -4,7 +4,7 @@ slug: flid
 client: Foreningen af Lystbådehavne i Danmark (FLID)
 year: 2020
 category: Brand Identity / Editorial
-role: Brand Identity / Graphic Design / Editorial Design
+role: Brand Identity / Editorial
 tags:
   - Brand Identity
   - Logo Design
