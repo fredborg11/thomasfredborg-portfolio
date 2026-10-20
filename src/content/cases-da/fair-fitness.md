@@ -13,6 +13,9 @@ tags:
   - Produktion
   - Brandkonsistens
 intro: Et syvårigt designsamarbejde med fokus på at skabe en sammenhængende visuel oplevelse på tværs af Fair Fitness' 18 centre på Sjælland.
+challenge: Skabe en genkendelig visuel oplevelse på tværs af 18 centre og samtidig tilpasse identiteten til forskellige fysiske rum og produktionsbehov.
+contribution: Jeg blev den primære kontaktperson for kunden og har håndteret grafisk udvikling, artwork, leverandørkoordinering og levering fra brief til færdigt materiale.
+result: Samarbejdet har fortsat siden 2019, og det visuelle system anvendes i dag på tværs af Fair Fitness' 18 centre på Sjælland.
 seoDescription: Løbende grafisk design og miljøbranding for Fair Fitness, der siden 2019 har været med til at skabe en sammenhængende visuel oplevelse på tværs af 18 fitnesscentre på Sjælland.
 imageAlts:
   - Fair Fitness miljøbranding og væggrafik i et moderne fitnesscenter
