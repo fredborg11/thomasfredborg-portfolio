@@ -211,6 +211,8 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           </div>
         </div>
 
+        <a class="about-more" href="${base}about/">More about my approach and experience <span>↗</span></a>
+
         <a class="cv-download" href="/cv.pdf" download>
           <span>Download CV</span>
           <span>↗</span>
@@ -661,6 +663,26 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .cv-download:hover {
     background: var(--fg);
     color: var(--bg);
+  }
+
+  .about-more {
+    margin-top: 18px;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--line);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    transition: color .2s ease, border-color .2s ease;
+  }
+
+  .about-more:hover {
+    color: var(--fg);
+    border-color: var(--fg);
   }
 
   .capability-label {

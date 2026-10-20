@@ -1,0 +1,369 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : path;
+---
+
+<BaseLayout
+  title="Om Thomas Fredborg | Senior Art Director & Grafisk Designer"
+  description="Om Thomas Fredborg, Senior Art Director og Grafisk Designer på Sjælland, med 13+ års erfaring inden for identitet, retail, emballage, digitalt design, print og kreativ produktion."
+  image="/media/Afslappet portræt i kreativt atelier.png"
+  imageAlt="Thomas Fredborg — Senior Art Director & Grafisk Designer"
+  lang="da"
+>
+  <section class="about-hero">
+    <p class="eyebrow">Om mig</p>
+    <h1>Jeg designer systemer, der <em>fungerer.</em></h1>
+    <p class="lead">
+      Senior Art Director & Grafisk Designer med 13+ års erfaring inden for
+      branding, retail, emballage, editorial, kampagner, digitalt design og UI.
+    </p>
+  </section>
+
+  <section class="about-main">
+    <div class="profile">
+      <figure class="portrait">
+        <img src={mediaUrl("/media/Afslappet portræt i kreativt atelier.png")} alt="Thomas Fredborg — Grafisk Designer og Art Director" loading="eager" decoding="async" />
+      </figure>
+      <span>Thomas Fredborg</span>
+      <small>Senior Art Director · Grafisk Designer</small>
+    </div>
+
+    <div class="content">
+      <div class="intro">
+        <h2>Godt design handler ikke kun om idéen. Det handler om at få idéen til at <em>fungere i virkeligheden.</em></h2>
+        <p>
+          Jeg trives i krydsfeltet mellem kreativ tænkning og praktisk eksekvering.
+          Det kan være at udvikle en visuel identitet, bygge et retail-system,
+          skabe emballage, designe digitale oplevelser eller tage en kampagne hele
+          vejen fra første retning til færdig produktion.
+        </p>
+        <p>
+          En stor del af min erfaring kommer fra projekter med mange formater,
+          produkter, budskaber og interessenter. Min styrke er at omsætte den
+          kompleksitet til klare visuelle systemer, der er nemme at forstå,
+          hænger sammen på tværs af touchpoints og er praktiske at producere.
+        </p>
+      </div>
+
+      <div class="section-block">
+        <p class="eyebrow">Sådan arbejder jeg</p>
+        <div class="principles">
+          <article><span>01</span><h3>Jeg skaber klarhed</h3><p>Jeg starter med briefet, målgruppen, rammerne og det, designet konkret skal opnå.</p></article>
+          <article><span>02</span><h3>Jeg bygger systemet</h3><p>Jeg omsætter retningen til et visuelt sprog, der kan fungere på tværs af formater, kanaler og anvendelser.</p></article>
+          <article><span>03</span><h3>Jeg får det til at fungere</h3><p>Jeg går tæt på den praktiske del — artwork, produktion, koordinering, leverandører og de detaljer, der gør løsningen anvendelig.</p></article>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <p class="eyebrow">Erfaring</p>
+        <div class="experience-list">
+          <div><strong>13+</strong><span>År i design</span></div>
+          <div><strong>Brand</strong><span>Identitet · Visuel retning · Kampagner</span></div>
+          <div><strong>Retail</strong><span>Print · POS · Miljøgrafik · Multi-brand systemer</span></div>
+          <div><strong>Digital</strong><span>UI · Digitalt design · Kunderejser</span></div>
+          <div><strong>Produktion</strong><span>Artwork · Print · Leverandørkoordinering · Levering</span></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <p class="eyebrow">Udvalgte projekter</p>
+        <div class="work-links">
+          <a href={`${base}da/cases/pisiffik-loyalty-app/`}><span>Pisiffik Loyalty App</span><small>Digitalt · UI · Retail</small><span>↗</span></a>
+          <a href={`${base}da/cases/flid/`}><span>FLID</span><small>Visuel identitet · Editorial</small><span>↗</span></a>
+          <a href={`${base}da/cases/simple-life-trope/`}><span>Simple Life by Trope</span><small>Emballage · Illustration</small><span>↗</span></a>
+          <a href={`${base}da/cases/fair-fitness/`}><span>Fair Fitness</span><small>Brand communication · Miljøgrafik</small><span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <p>Leder du efter en designer, der kan bevæge sig mellem idé, system og produktion?</p>
+        <a href={`${base}da/#contact`}>Tag kontakt <span>↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Om Thomas Fredborg",
+    url: Astro.url,
+    mainEntity: { "@id": `${Astro.site?.toString() ?? "https://thomasfredborg.dk/"}#person` },
+    description: "Om Thomas Fredborg, Senior Art Director og Grafisk Designer med fokus på branding, retail, emballage, digitalt design, print og kreativ produktion."
+  })}></script>
+</BaseLayout>
+
+<style>
+  .about-hero,
+  .about-main {
+    width: min(calc(100% - 56px), var(--max));
+  }
+
+  .about-hero {
+    margin: var(--space-major) auto var(--space-major);
+  }
+
+  .about-hero h1 {
+    margin: 0;
+    max-width: 1180px;
+    font-size: clamp(58px, 9vw, 138px);
+    line-height: .9;
+    font-weight: 500;
+    letter-spacing: -.065em;
+  }
+
+  .about-hero h1 em,
+  .intro h2 em {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: -.045em;
+  }
+
+  .lead {
+    max-width: 640px;
+    margin: 56px 0 0 31%;
+    font-size: clamp(20px, 2.3vw, 32px);
+    line-height: 1.2;
+    letter-spacing: -.025em;
+  }
+
+  .about-main {
+    display: grid;
+    grid-template-columns: .2fr .8fr;
+    gap: 5vw;
+    margin-bottom: var(--space-major);
+  }
+
+  .profile { min-width: 0; }
+
+  .portrait {
+    width: 190px;
+    height: 190px;
+    margin: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--card);
+  }
+
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 35%;
+    display: block;
+  }
+
+  .profile > span,
+  .profile > small {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .profile > span {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  .profile > small {
+    margin-top: 4px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .content { min-width: 0; }
+
+  .intro h2 {
+    margin: 0;
+    max-width: 1060px;
+    font-size: clamp(38px, 5.2vw, 76px);
+    line-height: .96;
+    font-weight: 500;
+    letter-spacing: -.05em;
+  }
+
+  .intro p {
+    max-width: 720px;
+    margin: 48px 0 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .intro p + p { margin-top: 22px; }
+
+  .section-block { margin-top: var(--space-major); }
+
+  .principles { border-top: 1px solid var(--line); }
+
+  .principles article {
+    display: grid;
+    grid-template-columns: 42px 220px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .principles article > span {
+    padding-top: 4px;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: .1em;
+  }
+
+  .principles h3 {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .principles p {
+    margin: 0;
+    max-width: 520px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .experience-list { border-top: 1px solid var(--line); }
+
+  .experience-list div {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 30px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .experience-list strong {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -.03em;
+  }
+
+  .experience-list span {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .work-links { border-top: 1px solid var(--line); }
+
+  .work-links a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px 24px;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    transition: opacity .2s ease;
+  }
+
+  .work-links a:hover { opacity: .55; }
+
+  .work-links small {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .about-cta {
+    margin-top: var(--space-major);
+    padding: 30px 0;
+    border-top: 1px solid var(--fg);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: baseline;
+  }
+
+  .about-cta p {
+    margin: 0;
+    max-width: 620px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .about-cta a {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 820px) {
+    .about-hero,
+    .about-main {
+      width: min(calc(100% - 28px), var(--max));
+    }
+
+    .about-hero {
+      margin-top: var(--space-section);
+      margin-bottom: var(--space-section);
+    }
+
+    .about-hero h1 {
+      font-size: clamp(50px, 13vw, 82px);
+    }
+
+    .lead {
+      margin: 36px 0 0;
+      font-size: 21px;
+    }
+
+    .about-main {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .portrait {
+      width: 138px;
+      height: 138px;
+    }
+
+    .intro p { font-size: 15px; }
+
+    .section-block { margin-top: var(--space-section); }
+
+    .principles article {
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+    }
+
+    .principles p {
+      grid-column: 2;
+    }
+
+    .experience-list div {
+      grid-template-columns: 100px 1fr;
+      gap: 18px;
+    }
+
+    .work-links a {
+      grid-template-columns: minmax(0, 1fr) 24px;
+      gap: 12px;
+    }
+
+    .work-links small { grid-column: 1; }
+
+    .work-links a > span:last-child {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+    }
+
+    .about-cta { display: block; }
+
+    .about-cta a { margin-top: 22px; }
+  }
+</style>

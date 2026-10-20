@@ -92,7 +92,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
 
       <nav aria-label="Primary">
         <a href={isHome ? "#work" : `${homePath}#work`}>{isDanish ? "Cases" : "Work"}</a>
-        <a href={isHome ? "#about" : `${homePath}#about`}>{isDanish ? "Om mig" : "About"}</a>
+        <a href={isDanish ? `${base}da/about/` : `${base}about/`}>{isDanish ? "Om mig" : "About"}</a>
         <a href={isHome ? "#contact" : `${homePath}#contact`}>{isDanish ? "Kontakt" : "Contact"}</a>
         <a href={`${base}cv.pdf`} download>CV</a>
         <span class="language-switch" aria-label="Language selection">
