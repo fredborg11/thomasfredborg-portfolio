@@ -11,6 +11,9 @@ tags:
   - Produktdesign
   - Digitalt
 intro: En komplet visuel platform for et nyt golfbrand, der spænder over logo, visuel identitet, emballage, golfbolddesign og den oprindelige retning for websitet.
+challenge: Skabe et tydeligt og genkendeligt fundament for et nyt golfbrand, der kunne fungere konsekvent på produkter, emballage og digitale kontaktpunkter.
+contribution: Jeg udviklede logo og visuel identitet og omsatte den til grafik på golfbolde, emballagevarianter og den oprindelige webretning.
+result: Der blev etableret et samlet visuelt fundament på tværs af brandets fysiske produkter, emballage og oprindelige digitale retning.
 seoDescription: Visuel identitet, emballage og produktdesign for Pinetree Golf, herunder logo, grafik til golfbolde, emballage og den oprindelige visuelle retning for websitet.
 imageAlts:
   - Pinetree Golf-golfhandske på golfbanen
