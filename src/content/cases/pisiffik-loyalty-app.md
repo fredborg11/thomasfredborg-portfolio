@@ -14,6 +14,9 @@ tags:
   - Campaign
   - Print
 intro: A long-term loyalty app project spanning digital product design, customer journeys and physical retail communication — from the first version in 2021 to a major visual update in 2025.
+challenge: Create a coherent visual experience across a loyalty app, customer journey and physical retail communication.
+contribution: I led the visual design across app UI, campaigns, customer journeys, launch motion and supporting in-store materials.
+result: The refreshed 2025 visual expression connects the app experience with physical retail communication across the customer journey.
 seoDescription: App and UI design for Pisiffik's loyalty experience, spanning digital product design, customer journeys, loyalty communication, retail onboarding, campaigns, print and launch motion.
 imageAlts:
   - Pisiffik loyalty app showcase with smartphone screens
