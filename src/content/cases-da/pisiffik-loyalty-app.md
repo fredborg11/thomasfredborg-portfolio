@@ -14,6 +14,9 @@ tags:
   - Kampagne
   - Print
 intro: Et langsigtet loyalitetsprojekt, der spænder over digitalt produktdesign, kunderejser og fysisk butikskommunikation — fra den første version i 2021 til en større visuel opdatering i 2025.
+challenge: Skabe en sammenhængende visuel oplevelse på tværs af loyalitetsappen, kunderejsen og den fysiske butikskommunikation.
+contribution: Jeg havde ansvaret for det visuelle design på tværs af app-UI, kampagner, kunderejser, launch-motion og understøttende butiksmaterialer.
+result: Det opdaterede visuelle udtryk fra 2025 forbinder appoplevelsen med den fysiske butikskommunikation gennem hele kunderejsen.
 seoDescription: App- og UI-design for Pisiffiks loyalitetsoplevelse med digitalt produktdesign, kunderejser, loyalitetskommunikation, onboarding i butikker, kampagner, print og launch-motion.
 imageAlts:
   - Pisiffik loyalty app-præsentation med smartphoneskærme
