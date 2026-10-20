@@ -12,6 +12,17 @@ tags:
   - Produktion
   - Multi-brand
 intro: En ugentlig non-food retailpublikation, der samler flere brands, produktkategorier og salgsbudskaber i et fleksibelt og produktionsklart designsystem.
+challenge: Samle flere brands, produktkategorier og salgsbudskaber i én ugentlig publikation uden at miste tydelighed eller de enkelte brands' identitet.
+contribution: Jeg udvikler sidelayouts, visuel retning og produktionssystemet for non-food-sektionen på tværs af almindelige og sæsonbaserede udgaver.
+result: Systemet understøtter en ugentlig produktion i høj volumen på tværs af flere koncepter og brands, samtidig med at outputtet forbliver struktureret og produktionsklart.
+seoDescription: Ugentlig multi-brand retaildesign og produktion for Pisiffik med layouts, typografi, salgsstrukturer, sæsonudgaver og et produktionssystem på tværs af JYSK, ILVA, Elgiganten, Pisattat og Torrak Fashion.
+imageAlts:
+  - Pisiffik non-food tilbudsaviser som en multi-brand ugentlig publikation
+  - Pisiffik non-food retailside med tilbud og produktinformation
+  - Pisiffik non-food redaktionelt opslag med glas og borddækning
+  - Pisiffik non-food elektronikopslag med tilbud
+  - Pisiffik non-food bolig- og sæsonkatalog
+  - Pisiffik non-food sider med møbler og modekoncepter
 cover: /media/1791360599281-piffik-kataloger-pa-stilrent-bord.png
 gallery:
   - /media/1791360611350-piffissiks-app-ilinnut-neqeroorutit-pitsaasut.png
