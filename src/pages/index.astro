@@ -254,7 +254,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   }
 
   .value-proposition {
-    margin: 0 auto var(--space-major);
+    margin: 0 auto var(--space-section);
   }
 
   .experience-strip {
@@ -672,7 +672,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
 
   .contact {
     width: min(calc(100% - 56px), var(--max));
-    margin: 24vh auto 0;
+    margin: var(--space-major) auto 0;
     display: grid;
     grid-template-columns: .2fr .8fr;
     gap: 5vw;
@@ -759,7 +759,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
     .value-proposition {
       grid-template-columns: 1fr;
       gap: 28px;
-      margin-top: 13vh;
+      margin-top: 0;
     }
 
     .value-item {
