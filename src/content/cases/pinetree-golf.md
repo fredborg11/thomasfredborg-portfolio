@@ -4,7 +4,7 @@ slug: pinetree-golf
 client: Pinetree Golf
 year: 2021
 category: Brand Identity
-role: Brand Identity / Graphic Design
+role: Brand Identity / Packaging
 tags:
   - Brand Identity
   - Packaging
