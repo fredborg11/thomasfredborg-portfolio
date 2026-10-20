@@ -4,7 +4,7 @@ slug: simple-life-trope
 client: The Whole Company / Simple Life by Trope
 year: 2022
 category: Emballage
-role: Emballagedesign / Illustration / Art Direction
+role: Emballage / Art Direction
 tags:
   - Emballage
   - Illustration
