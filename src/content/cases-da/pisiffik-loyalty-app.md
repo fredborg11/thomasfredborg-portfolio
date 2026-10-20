@@ -4,7 +4,7 @@ slug: pisiffik-loyalty-app
 client: Pisiffik
 year: 2025
 category: Digitalt / Loyalitet
-role: Grafisk design / Visuel retning
+role: UI / Visuelt design
 tags:
   - Appdesign
   - Digitalt
