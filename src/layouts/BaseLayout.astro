@@ -1,9 +1,9 @@
 ---
 const {
-  title = "Thomas Fredborg — Graphic Designer / Art Director",
+  title = "Thomas Fredborg — Senior Art Director & Graphic Designer",
   description = "Portfolio of Thomas Fredborg — graphic design, branding, retail, digital, packaging and print.",
   image = "",
-  imageAlt = "Thomas Fredborg — Graphic Designer / Art Director",
+  imageAlt = "Thomas Fredborg — Senior Art Director & Graphic Designer",
   lang = "en"
 } = Astro.props;
 const canonical = Astro.url;
@@ -110,7 +110,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     <footer class="site-footer">
       <div>
         <span class="footer-label">Thomas Fredborg</span>
-        <span class="footer-muted">{isDanish ? "Grafisk Designer / Art Director" : "Graphic Designer / Art Director"}</span>
+        <span class="footer-muted">{isDanish ? "Senior Art Director / Grafisk Designer" : "Senior Art Director / Graphic Designer"}</span>
       </div>
       <div class="footer-right">
         <a href="mailto:fredborg11@gmail.com">fredborg11@gmail.com</a>
