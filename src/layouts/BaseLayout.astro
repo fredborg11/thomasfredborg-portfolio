@@ -149,6 +149,13 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     text-rendering: optimizeLegibility;
   }
 
+
+  a:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
