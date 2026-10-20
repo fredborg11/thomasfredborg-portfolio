@@ -12,6 +12,9 @@ tags:
   - Retail
   - Branding
 intro: A playful six-product snack series created to stand out as spot products in Rema 1000 and appeal to a younger audience through bold colour, character and humour.
+challenge: Create a six-product snack series with enough shelf impact to stand out as spot products while still reading as one family.
+contribution: I developed the naming, visual expression, characters, packaging layouts and final production artwork in collaboration with the client.
+result: The six-product series was produced and reached Rema 1000 stores across Denmark.
 seoDescription: Packaging design and illustration for Simple Life by Trope, covering naming, visual development, custom characters, typography, colour and final artwork for a six-product snack series sold in Rema 1000.
 imageAlts:
   - Simple Life by Trope snack packaging collection featuring six colourful products
