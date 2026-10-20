@@ -12,6 +12,17 @@ tags:
   - Production
   - Multi-brand
 intro: A weekly non-food retail publication bringing multiple brands, product categories and promotional messages together in a flexible, production-ready design system.
+challenge: Bring multiple brands, product categories and promotional messages together in one weekly publication without losing clarity or brand identity.
+contribution: I develop the page layouts, visual direction and production system for the non-food section across recurring and seasonal editions.
+result: The system supports a high-volume weekly publication across multiple concepts and brands while keeping the output structured and production-ready.
+seoDescription: Weekly multi-brand retail design and production for Pisiffik, covering layouts, typography, promotional structures, seasonal editions and a production system used across JYSK, ILVA, Elgiganten, Pisattat and Torrak Fashion.
+imageAlts:
+  - Pisiffik non-food retail catalogue covers showing a multi-brand weekly publication
+  - Pisiffik non-food retail page with promotional offers and product information
+  - Pisiffik non-food editorial spread with glassware and tableware
+  - Pisiffik non-food electronics promotional spread
+  - Pisiffik non-food home and seasonal retail catalogue
+  - Pisiffik non-food pages featuring furniture and fashion concepts
 cover: /media/1791360599281-piffik-kataloger-pa-stilrent-bord.png
 gallery:
   - /media/1791360611350-piffissiks-app-ilinnut-neqeroorutit-pitsaasut.png
