@@ -40,7 +40,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   imageAlt={cases[0] ? `${cases[0].frontmatter.title} — Thomas Fredborg portfolio case` : "Thomas Fredborg — Grafisk Designer / Art Director"}
 >
   <section class="hero">
-    <p class="eyebrow">Grafisk Designer / Art Director · København / Sjælland</p>
+    <p class="eyebrow">Senior Art Director & Grafisk Designer · København / Sjælland</p>
 
     <h1>
       Jeg får visuelle<br />
@@ -63,6 +63,18 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
         <span>Udvalgte cases</span>
         <span>↓</span>
       </a>
+    </div>
+  </section>
+
+  <section class="value-proposition">
+    <div class="value-heading">
+      <p class="eyebrow">Det jeg bidrager med</p>
+      <h2>Design, der forbinder <em>tænkning og eksekvering.</em></h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-item"><span class="value-number">01</span><div><h3>Jeg gør kompleksitet enkel</h3><p>Jeg omsætter komplekse briefs, store mængder information og mange krav til klare visuelle systemer.</p></div></div>
+      <div class="value-item"><span class="value-number">02</span><div><h3>Fra idé til produktion</h3><p>Jeg arbejder fra visuel retning og designudvikling til artwork, koordinering, produktion og levering.</p></div></div>
+      <div class="value-item"><span class="value-number">03</span><div><h3>Design, der fungerer i virkeligheden</h3><p>Jeg designer til de formater, kanaler, mennesker og arbejdsgange, løsningen skal fungere i uden for mockuppet.</p></div></div>
     </div>
   </section>
 
@@ -134,11 +146,18 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
           "@type": "ListItem",
           position: index + 1,
           name: item.frontmatter.title,
-          url: new URL(`${base}da/cases/${item.file.split("/").pop()?.replace(/\\.md$/, "")}/`, Astro.site).toString()
+          url: new URL(`${base}da/cases/${item.file.split("/").pop()?.replace(/\.md$/, "")}/`, Astro.site).toString()
         }))
       }
     ]
   })}></script>
+  <section class="experience-strip">
+    <div class="experience-stat"><strong>13+</strong><span>års erfaring med design</span></div>
+    <div class="experience-stat"><strong>18</strong><span>Fair Fitness-centre</span></div>
+    <div class="experience-stat"><strong>7</strong><span>Pisiffik-butikker</span></div>
+    <div class="experience-stat"><strong>56</strong><span>sider pr. FLID-nummer</span></div>
+  </section>
+
   <section id="about" class="about">
     <p class="eyebrow">Om mig</p>
 
