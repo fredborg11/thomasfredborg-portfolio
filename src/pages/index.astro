@@ -39,7 +39,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   imageAlt={cases[0] ? `${cases[0].frontmatter.title} — Thomas Fredborg portfolio project` : "Thomas Fredborg — Graphic Designer / Art Director"}
 >
   <section class="hero">
-    <p class="eyebrow">Graphic Designer / Art Director · Copenhagen / Zealand</p>
+    <p class="eyebrow">Senior Art Director & Graphic Designer · Copenhagen / Zealand</p>
 
     <h1>
       I make visual<br />
@@ -62,6 +62,18 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
         <span>Selected work</span>
         <span>↓</span>
       </a>
+    </div>
+  </section>
+
+  <section class="value-proposition">
+    <div class="value-heading">
+      <p class="eyebrow">What I bring</p>
+      <h2>Design that connects <em>thinking and execution.</em></h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-item"><span class="value-number">01</span><div><h3>Turning complexity into clarity</h3><p>I turn complex briefs, large amounts of information and multiple requirements into clear visual systems.</p></div></div>
+      <div class="value-item"><span class="value-number">02</span><div><h3>From concept to production</h3><p>I work from visual direction and design development through artwork, coordination, production and delivery.</p></div></div>
+      <div class="value-item"><span class="value-number">03</span><div><h3>Design that works in reality</h3><p>I design for the formats, channels, people and practical workflows a solution has to survive outside the mockup.</p></div></div>
     </div>
   </section>
 
@@ -138,6 +150,13 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
       }
     ]
   })}></script>
+  <section class="experience-strip">
+    <div class="experience-stat"><strong>13+</strong><span>Years in design</span></div>
+    <div class="experience-stat"><strong>18</strong><span>Fair Fitness centres</span></div>
+    <div class="experience-stat"><strong>7</strong><span>Pisiffik stores</span></div>
+    <div class="experience-stat"><strong>56</strong><span>Pages per FLID issue</span></div>
+  </section>
+
   <section id="about" class="about">
     <p class="eyebrow">About</p>
 
