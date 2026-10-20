@@ -4,7 +4,7 @@ slug: pisiffik-alkoholfri
 client: Pisiffik
 year: 2026
 category: Campaign
-role: Graphic Design / Visual Development
+role: Retail Campaign / Graphic Design
 tags:
   - Campaign
   - Retail
