@@ -12,6 +12,9 @@ tags:
   - Print
   - Digitalt
 intro: En komplet visuel identitet og et editorialsystem for FLID, bygget op omkring et kompasinspireret logo og et designsystem, der fungerer på tværs af print, digitalt og den daglige kommunikation.
+challenge: Flytte FLID fra en statisk ankerbaseret identitet til et udtryk med retning og bevægelse uden at miste den maritime karakter.
+contribution: Jeg udviklede logo, visuel identitet, designmanual og det redaktionelle system og tog ansvar for den løbende grafiske produktion.
+result: Identiteten er stadig i brug i dag og understøttes af et fleksibelt system til editorial og øvrig kommunikation.
 seoDescription: Visuel identitet, logodesign og editorial design for FLID, herunder et kompasinspireret logo, designmanual, 56-siders kvartalsmagasin og brandet kommunikation.
 imageAlts:
   - FLID kompaslogo over roligt havnevand
