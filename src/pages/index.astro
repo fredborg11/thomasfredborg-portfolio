@@ -251,7 +251,14 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
   .value-proposition,
   .experience-strip {
     width: min(calc(100% - 56px), var(--max));
-    margin: 0 auto var(--space-section);
+  }
+
+  .value-proposition {
+    margin: 0 auto var(--space-major);
+  }
+
+  .experience-strip {
+    margin: var(--space-major) auto 0;
   }
 
   .value-proposition {
