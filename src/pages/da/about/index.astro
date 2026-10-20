@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : path;
