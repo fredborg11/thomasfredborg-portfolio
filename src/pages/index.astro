@@ -119,12 +119,13 @@ const mediaUrl = (path) => {
               <div class="project-name">
                 <h3>{item.frontmatter.title}</h3>
                 <p>{item.frontmatter.client}</p>
+                {item.frontmatter.role && <span class="project-role">{item.frontmatter.role}</span>}
               </div>
 
               <div class="project-right">
-                <span>{item.frontmatter.year}</span>
+                <span class="project-year">{item.frontmatter.year}</span>
                 <div class="project-tags">
-                  {(item.frontmatter.tags ?? []).slice(0, 3).map((tag) => <span>{tag}</span>)}
+                  {(item.frontmatter.tags ?? []).slice(0, 2).map((tag) => <span>{tag}</span>)}
                 </div>
               </div>
             </div>
@@ -560,6 +561,17 @@ const mediaUrl = (path) => {
   .project-name p {
     margin-top: 3px;
     font-size: 12px;
+    color: var(--muted);
+  }
+
+  .project-role {
+    display: block;
+    margin-top: 7px;
+    max-width: 520px;
+    font-size: 10px;
+    line-height: 1.35;
+    text-transform: uppercase;
+    letter-spacing: .08em;
     color: var(--muted);
   }
 
