@@ -67,8 +67,7 @@ jobs:
             urls+=("$url")
           }
 
-          if printf '%s
-' "$changed" | grep -qE '^(src/layouts/BaseLayout\.astro|src/pages/index\.astro|src/pages/about/index\.astro|src/pages/da/index\.astro|src/pages/da/about/index\.astro|src/pages/cases/\[slug\]\.astro|src/pages/da/cases/\[slug\]\.astro)$'; then
+          if printf '%s\n' "$changed" | grep -qE '^(src/layouts/BaseLayout\.astro|src/pages/index\.astro|src/pages/about/index\.astro|src/pages/da/index\.astro|src/pages/da/about/index\.astro|src/pages/cases/\[slug\]\.astro|src/pages/da/cases/\[slug\]\.astro)$'; then
             add_url "https://thomasfredborg.dk/"
             add_url "https://thomasfredborg.dk/da/"
             add_url "https://thomasfredborg.dk/about/"
@@ -93,28 +92,23 @@ jobs:
             [ -z "$path" ] && continue
             slug="$(basename "$path" .md)"
             add_url "https://thomasfredborg.dk/cases/$slug/"
-          done < <(printf '%s
-' "$changed" | grep -E '^src/content/cases/[^/]+\.md$' || true)
+          done < <(printf '%s\n' "$changed" | grep -E '^src/content/cases/[^/]+\.md$' || true)
 
           while IFS= read -r path; do
             [ -z "$path" ] && continue
             slug="$(basename "$path" .md)"
             add_url "https://thomasfredborg.dk/da/cases/$slug/"
-          done < <(printf '%s
-' "$changed" | grep -E '^src/content/cases-da/[^/]+\.md$' || true)
+          done < <(printf '%s\n' "$changed" | grep -E '^src/content/cases-da/[^/]+\.md$' || true)
 
           if [ "${#urls[@]}" -eq 0 ]; then
             echo "No page changes detected; skipping IndexNow."
             exit 0
           fi
 
-          printf 'Submitting %s URL(s) to IndexNow:
-' "${#urls[@]}"
-          printf ' - %s
-' "${urls[@]}"
+          printf 'Submitting %s URL(s) to IndexNow:\n' "${#urls[@]}"
+          printf ' - %s\n' "${urls[@]}"
 
-          export URL_JSON="$(printf '%s
-' "${urls[@]}" | python -c 'import json,sys; print(json.dumps([x.strip() for x in sys.stdin if x.strip()]))')"
+          export URL_JSON="$(printf '%s\n' "${urls[@]}" | python -c 'import json,sys; print(json.dumps([x.strip() for x in sys.stdin if x.strip()]))')"
 
           python - <<'PY'
           import json
