@@ -4,7 +4,7 @@ slug: fair-fitness
 client: Fair Fitness
 year: 2019
 category: Brand Communication / Environmental
-role: Graphic Design / Environmental Branding / Production
+role: Environmental / Brand Design
 tags:
   - Brand Communication
   - Environmental Graphics
