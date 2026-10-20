@@ -231,7 +231,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
   }
 
   .site-footer {
-    margin-top: 160px;
+    margin-top: var(--space-major);
     padding: 28px 0 36px;
     border-top: 1px solid var(--line);
     display: grid;
@@ -308,7 +308,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     }
 
     .site-footer {
-      margin-top: 96px;
+      margin-top: var(--space-section);
       padding-bottom: 28px;
       display: block;
       font-size: 11px;
