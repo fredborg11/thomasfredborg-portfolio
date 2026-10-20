@@ -33,6 +33,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={new URL(englishPath, siteUrl)} />
     <link rel="alternate" hreflang="da" href={new URL(danishPath, siteUrl)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(englishPath, siteUrl)} />
     <link rel="sitemap" href={new URL("sitemap-index.xml", siteUrl)} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={isDanish ? "da_DK" : "en_DK"} />
