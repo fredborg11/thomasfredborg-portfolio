@@ -29,7 +29,11 @@ const cases = allCases.sort((a, b) => {
 });
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
-const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : path;
+const mediaUrl = (path) => {
+  if (!path?.startsWith("/")) return path;
+  const match = path.match(/^\/media\/(.+)\.(png|jpe?g)$/i);
+  return match ? `${base}media-optimized/${match[1]}.webp` : `${base}${path.slice(1)}`;
+};
 ---
 
 <BaseLayout

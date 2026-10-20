@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "node scripts/optimize-images.mjs && astro dev",
+    "build": "node scripts/optimize-images.mjs && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^6.0.0",
-    "@astrojs/sitemap": "^3.7.4"
+    "@astrojs/sitemap": "^3.7.4",
+    "sharp": "^0.34.5"
   }
 }
