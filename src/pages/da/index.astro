@@ -63,10 +63,16 @@ const mediaUrl = (path) => {
         </p>
       </div>
 
-      <a class="scroll-link" href="#work">
-        <span>Udvalgte cases</span>
-        <span>↓</span>
-      </a>
+      <div class="hero-actions">
+        <a class="scroll-link" href="#work">
+          <span>Udvalgte cases</span>
+          <span>↓</span>
+        </a>
+        <a class="hero-cv" href="/cv.pdf" download>
+          <span>Hent CV</span>
+          <span>↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -427,6 +433,30 @@ const mediaUrl = (path) => {
   .hero-capabilities span {
     margin: 0 7px;
     color: var(--line);
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .hero-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    transition: color .2s ease, border-color .2s ease;
+  }
+
+  .hero-cv:hover {
+    color: var(--fg);
+    border-color: var(--fg);
   }
 
   .scroll-link {
@@ -880,8 +910,18 @@ const mediaUrl = (path) => {
       margin: 0 5px;
     }
 
-    .scroll-link {
+    .hero-actions {
       margin-top: 24px;
+      flex-wrap: wrap;
+      gap: 18px 24px;
+    }
+
+    .scroll-link {
+      margin-top: 0;
+      min-height: 42px;
+    }
+
+    .hero-cv {
       min-height: 42px;
     }
 
