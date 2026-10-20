@@ -4,7 +4,7 @@ slug: pisiffik-nonfood
 client: Pisiffik
 year: 2026
 category: Retail / Print
-role: Retail Design / Graphic Production
+role: Retail / Production Design
 tags:
   - Retail
   - Print
