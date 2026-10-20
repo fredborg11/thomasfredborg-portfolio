@@ -164,7 +164,7 @@ const mediaUrl = (path) => path?.startsWith("/") ? `${base}${path.slice(1)}` : p
                 <figure class={`gallery-item gallery-item-${index + 3}`}>
                   <img
                   src={mediaUrl(image)}
-                  alt={frontmatter.imageAlts?.[index + 1] ?? `${frontmatter.title} — project image ${index + 1}`}
+                  alt={frontmatter.imageAlts?.[index + 4] ?? `${frontmatter.title} — project image ${index + 4}`}
                   loading="lazy"
                   decoding="async"
                 />
