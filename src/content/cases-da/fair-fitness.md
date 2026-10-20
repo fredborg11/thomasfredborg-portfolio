@@ -4,7 +4,7 @@ slug: fair-fitness
 client: Fair Fitness
 year: 2019
 category: Brandkommunikation / Miljøgrafik
-role: Grafisk design / Miljøbranding / Produktion
+role: Miljø / Branddesign
 tags:
   - Brandkommunikation
   - Miljøgrafik
