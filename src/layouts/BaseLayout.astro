@@ -35,6 +35,7 @@ const isHome = Astro.url.pathname === new URL(homePath, Astro.url).pathname;
     <link rel="alternate" hreflang="da" href={new URL(danishPath, siteUrl)} />
     <link rel="alternate" hreflang="x-default" href={new URL(englishPath, siteUrl)} />
     <link rel="sitemap" href={new URL("sitemap-index.xml", siteUrl)} />
+    <link rel="alternate" type="application/rss+xml" title="Thomas Fredborg — Selected Work" href={new URL("rss.xml", siteUrl)} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={isDanish ? "da_DK" : "en_DK"} />
     <meta property="og:locale:alternate" content={isDanish ? "en_DK" : "da_DK"} />
