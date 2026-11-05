@@ -11,6 +11,9 @@ tags:
   - Retail
   - Commercial Design
 intro: A distinctive wordmark for Daily, a private label by Din Isenkræmmer. The identity was designed to feel approachable and contemporary while working across a broad range of everyday products.
+challenge: Create a modern, recognisable logo for a new kitchenware range that could extend across multiple product categories without feeling either budget or premium.
+contribution: I developed the wordmark and adapted an existing typeface, refining the letterforms to create a distinctive rounded expression and a recognisable custom A.
+result: Approved in the first presentation, the logo became the identity for Daily products sold in Din Isenkræmmer stores. At the time of writing, it appears on 89 products in Holger's catalogue.
 seoDescription: Logo design for Daily, a private label by Din Isenkræmmer. A distinctive, adaptable wordmark developed for a broad retail assortment.
 imageAlts:
   - Daily kitchen appliances arranged in a bright, Scandinavian-style kitchen setting
