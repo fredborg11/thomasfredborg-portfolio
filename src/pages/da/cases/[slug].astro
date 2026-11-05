@@ -54,6 +54,7 @@ const isLoyaltyApp = frontmatter.slug === "pisiffik-loyalty-app";
 const isSimpleLife = frontmatter.slug === "simple-life-trope";
 const isPisiffikNonFood = frontmatter.slug === "pisiffik-nonfood";
 const isFlid = frontmatter.slug === "flid";
+const isDaily = frontmatter.slug === "daily";
 const isFairFitness = frontmatter.slug === "fair-fitness";
 const seoTitleMap = {
   "pinetree-golf": "Pinetree Golf — Visuel identitet & emballage | Thomas Fredborg",
@@ -61,6 +62,7 @@ const seoTitleMap = {
   "pisiffik-loyalty-app": "Pisiffik Loyalty App — UI & visuelt design | Thomas Fredborg",
   "simple-life-trope": "Simple Life by Trope — Emballagedesign | Thomas Fredborg",
   "flid": "FLID — Visuel identitet & editorial design | Thomas Fredborg",
+  "daily": "Daily — Logodesign & visuel identitet | Thomas Fredborg",
   "pisiffik-nonfood": "Pisiffik Non-Food — Retaildesign & produktion | Thomas Fredborg",
   "fair-fitness": "Fair Fitness — Brandkommunikation & miljøgrafik | Thomas Fredborg",
 };
@@ -208,6 +210,51 @@ const mediaUrl = (path) => {
               ))}
             </div>
           </section>
+        )}
+      </>
+        ) : isDaily ? (
+      <>
+        <div class="body flid-body">
+          <Content />
+        </div>
+
+        {frontmatter.gallery?.length > 0 && (
+          <div class="flid-media">
+            <section class="media-section">
+              <div class="media-kicker">01 / Wordmark og udtryk</div>
+              <div class="flid-gallery">
+                {frontmatter.gallery.slice(0, 2).map((image, index) => (
+                  <figure class="flid-gallery-item">
+                    <img
+                      src={mediaUrl(image)}
+                      alt={frontmatter.imageAlts?.[index + 1] ?? `Daily — billede ${index + 1}`}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                    {frontmatter.galleryLabels?.[index] && <figcaption>{frontmatter.galleryLabels[index]}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </section>
+            {frontmatter.gallery.length > 2 && (
+              <section class="media-section">
+                <div class="media-kicker">02 / Anvendelse på produkter</div>
+                <div class="flid-gallery">
+                  {frontmatter.gallery.slice(2).map((image, index) => (
+                    <figure class="flid-gallery-item">
+                      <img
+                        src={mediaUrl(image)}
+                        alt={frontmatter.imageAlts?.[index + 3] ?? `Daily — produktanvendelse ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {frontmatter.galleryLabels?.[index + 2] && <figcaption>{frontmatter.galleryLabels[index + 2]}</figcaption>}
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
         )}
       </>
     ) : isFlid ? (
