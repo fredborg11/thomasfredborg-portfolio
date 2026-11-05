@@ -12,9 +12,13 @@ tags:
   - Commercial Design
 intro: A distinctive, approachable wordmark developed for Daily, a private label created to bring a modern identity to a broad range of everyday products.
 cover: /media/1793878994630-daily-k-kkenudstyr-i-nordisk-lys.png
-gallery: []
+gallery:
+  - /media/1793879109819-minimalistisk-daily-logo-pa-papir.png
+  - /media/1793879140364-daily-k-kkenets-moderne-morgenbord.png
+  - /media/1793879256290-daily-produktbranding-i-varme-neutrale-toner.png
+  - /media/1793879406500-elegant-daily-apparater-i-varm-studiostil.png
 video: ""
-updatedAt: 2026-11-05T11:43:22.926Z
+updatedAt: 2026-11-05T11:50:30.910Z
 ---
 ## The brief
 
