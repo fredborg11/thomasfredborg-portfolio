@@ -10,50 +10,62 @@ tags:
   - Logodesign
   - Retail
   - Kommercielt design
-intro: Et karakteristisk og imødekommende wordmark udviklet til Daily – et private label med en moderne identitet til en bred vifte af hverdagsprodukter.
-challenge: At skabe et moderne og genkendeligt logo til en ny køkkenserie, som kunne udvides til mange produktkategorier uden at signalere hverken discount eller premium.
-contribution: Jeg udviklede wordmarket selvstændigt og modificerede en eksisterende skrifttype for at skabe et karakteristisk, afrundet udtryk med et særligt A.
-result: Logoet blev godkendt i første præsentation og bruges i dag på Daily-produkter, der sælges i Din Isenkræmmer-butikker. På tidspunktet for denne case findes brandet på 89 produkter i Holgers varekatalog.
-seoDescription: Logodesign for Daily, et private label fra Din Isenkræmmer. Et enkelt og karakteristisk wordmark udviklet til en bred vifte af hverdagsprodukter.
-imageAlts: []
-galleryLabels: []
-gallery: []
+intro: Et karakteristisk wordmark til Daily, et private label fra Din Isenkræmmer. Identiteten er udviklet med et moderne og imødekommende udtryk, der fungerer på tværs af et bredt sortiment af hverdagsprodukter.
+challenge: At skabe et moderne og genkendeligt logo til en ny køkkenserie, som kunne udvides til flere produktkategorier uden at virke hverken billigt eller eksklusivt.
+contribution: Jeg udviklede wordmarket og tilpassede en eksisterende skrifttype for at skabe et mere individuelt udtryk med afrundede former og et karakteristisk A.
+result: Logoet blev godkendt i første præsentation og bruges på Daily-produkter, der sælges i Din Isenkræmmer-butikker. På tidspunktet for denne case optræder brandet på 89 produkter i Holgers varekatalog.
+seoDescription: Logodesign for Daily, et private label fra Din Isenkræmmer. Et karakteristisk og fleksibelt wordmark udviklet til et bredt detailsortiment.
+imageAlts:
+  - Daily-køkkenprodukter arrangeret i et lyst, skandinavisk køkkenmiljø
+  - Daily-wordmarket præsenteret på en varm, lys baggrund
+  - Daily-logoet anvendt på et udvalg af køkkenprodukter
+  - Daily-branding vist på emballage, produkter og mærkater
+  - Daily-brandede køkken- og husholdningsprodukter vist som en samlet produktserie
+galleryLabels:
+  - Wordmarket
+  - Logoet i brug
+  - Emballage og kontaktpunkter
+  - På tværs af produktkategorier
+cover: /media/1793878994630-daily-k-kkenudstyr-i-nordisk-lys.png
+gallery:
+  - /media/1793879109819-minimalistisk-daily-logo-pa-papir.png
+  - /media/1793879140364-daily-k-kkenets-moderne-morgenbord.png
+  - /media/1793879256290-daily-produktbranding-i-varme-neutrale-toner.png
+  - /media/1793879406500-elegant-daily-apparater-i-varm-studiostil.png
 video: ""
-updatedAt: 2026-11-05T10:45:00Z
+updatedAt: 2026-11-05T12:50:00Z
 ---
 
 ## Opgaven
 
 I december 2024 fik jeg gennem Lynge Olsen Group til opgave at udvikle et logo til Daily, et nyt private label for Din Isenkræmmer.
 
-Logoet skulle i første omgang bruges på en ny køkkenserie, men det skulle samtidig kunne fungere på et langt bredere sortiment over tid — fra køkkenredskaber og køkkenmaskiner til boligtilbehør og dekoration. Daily skulle desuden kunne stå som et selvstændigt brand uden at være visuelt forbundet med Din Isenkræmmers egen identitet.
+Logoet skulle i første omgang bruges på en køkkenserie, men samtidig kunne fungere på et bredere sortiment over tid – fra køkkenredskaber og køkkenmaskiner til boligtilbehør og dekoration. Daily skulle stå som et selvstændigt brand med sin egen visuelle karakter.
 
-Udfordringen var at finde den rette balance: et moderne, skandinavisk udtryk, der føltes tilgængeligt og signalerede god værdi uden at virke billigt eller for eksklusivt.
+Opgaven var at finde balancen mellem et moderne, skandinavisk udtryk og en tilgængelig prisposition. Logoet skulle signalere kvalitet og god værdi uden at fremstå hverken billigt eller eksklusivt.
 
-## På jagt efter det rette udtryk
+## Fra typografisk retning til wordmark
 
-Jeg udforskede otte forskellige typografiske retninger og præsenterede dem i sammenhæng med køkkenprodukter. På den måde kunne kunden vurdere både logoerne i sig selv og hvordan de ville fungere, når de blev anvendt på et konkret produkt.
+Jeg udviklede otte typografiske retninger og præsenterede dem i sammenhæng med køkkenprodukter. Det gjorde det muligt at vurdere forslagene i en realistisk kontekst – ikke kun som logoer på en skærm.
 
-Den valgte retning tog udgangspunkt i enkelhed, afrundede former og et tydeligt, genkendeligt wordmark. Målet var at skabe et brand, der føltes moderne og imødekommende uden at tage sig selv alt for højtideligt.
+Den valgte retning bygger på enkelhed, afrundede former og et tydeligt wordmark. Udtrykket er moderne og imødekommende, men uden unødvendige grafiske virkemidler.
 
-## Et karakteristisk wordmark
+## Et karakteristisk A
 
-Med udgangspunkt i en eksisterende skrifttype modificerede jeg bogstavformerne for at skabe et mere individuelt udtryk. De afrundede former giver logoet en blødere og mere afslappet karakter, mens de høje proportioner hjælper det med at bevare tydelighed og genkendelighed.
+Med udgangspunkt i en eksisterende skrifttype tilpassede jeg bogstavformerne for at skabe et mere individuelt udtryk. De afrundede former giver logoet en blød karakter, mens proportionerne sikrer, at det forbliver tydeligt og let at aflæse.
 
-Det særlige kendetegn er det modificerede A. Formen giver wordmarket sin egen karakter uden behov for et separat symbol eller unødvendige grafiske elementer.
+Det særlige kendetegn er det modificerede A. Det giver wordmarket en genkendelig detalje uden behov for et separat symbol.
 
-Løsningen bygger på et enkelt princip: less is more. Logoet har tilstrækkelig karakter til at blive genkendt, men er stadig enkelt og letlæseligt — også når det gengives i lille størrelse.
+## Skabt til brug i hverdagen
 
-## Designet til hverdagen
+Logoet blev udviklet i en monokrom version med sort og hvid som de bærende udtryk. Den enkle løsning gør det let at anvende på forskellige materialer, formater og produkttyper – uden at miste sin genkendelighed.
 
-Logoet blev udviklet som et monokromt wordmark, hvor sort og hvid er de eneste godkendte udtryk. Ved at holde identiteten fri for ekstra farver og grafiske elementer kan den tilpasses forskellige produkttyper, materialer, formater og produktionsmetoder.
-
-Fra køkkenmaskiner og redskaber til opbevaring og dekoration er logoet designet til at fungere naturligt på vidt forskellige hverdagsprodukter og samtidig bevare et sammenhængende brandudtryk.
+Fra køkkenmaskiner og redskaber til opbevaring og boligtilbehør er wordmarket tænkt som en fleksibel afsender på tværs af sortimentet.
 
 ## En identitet i brug
 
-Det valgte logo blev godkendt i første præsentation og blev efterfølgende identiteten for Daily. Brandet bruges i dag på produkter, der sælges i mange af Din Isenkræmmers butikker.
+Det valgte logo blev godkendt i første præsentation og blev efterfølgende identiteten for Daily. Brandet bruges på produkter, der sælges i Din Isenkræmmer-butikker.
 
-På tidspunktet for denne case findes Daily på 89 produkter i Holgers varekatalog — et konkret eksempel på, hvordan et enkelt og karakteristisk wordmark kan fungere på tværs af et bredt og varieret detailsortiment.
+På tidspunktet for denne case optræder Daily på 89 produkter i Holgers varekatalog. Det viser, hvordan et enkelt wordmark kan fungere på tværs af et bredt og varieret detailsortiment.
 
-Projektet er et fokuseret eksempel på min tilgang til logodesign: at forstå den kommercielle sammenhæng, finde den bærende visuelle idé og skabe et logo, der fungerer i praksis.
+Projektet viser min tilgang til logodesign: at forstå den kommercielle sammenhæng, finde den bærende visuelle idé og udvikle en løsning, der fungerer i praksis.
