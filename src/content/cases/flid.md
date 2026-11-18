@@ -15,7 +15,7 @@ intro: A complete visual identity and editorial system for FLID, built around a 
 challenge: Move FLID beyond a static anchor-based identity while keeping its maritime character and making the new system practical for everyday communication.
 contribution: I developed the logo, visual identity, design manual and editorial system, and took responsibility for the ongoing graphic production.
 result: The identity is still in use today, supported by a flexible editorial and communication system.
-seoDescription: Brand identity, logo design and editorial design for FLID, including a compass-inspired logo, design manual, 56-page quarterly magazine and branded communications.
+seoDescription: Brand identity and editorial design for FLID, including logo, design manual and the 56-page quarterly magazine Flid og Fakta.
 imageAlts:
   - FLID compass logo over calm marina water
   - FLID brand manual and logo guidelines on a marina dock
